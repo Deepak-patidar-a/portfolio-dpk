@@ -14,7 +14,7 @@ function GridBackground() {
         className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(129,140,248,0.08) 0%, transparent 70%)",
         }}
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -23,7 +23,7 @@ function GridBackground() {
         className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 70%)",
         }}
         animate={{ x: [0, -40, 0], y: [0, -30, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
@@ -53,7 +53,7 @@ function GridBackground() {
             <path
               d="M 60 0 L 0 0 0 60"
               fill="none"
-              stroke="#00D4FF"
+              stroke="#818CF8"
               strokeWidth="0.5"
             />
           </pattern>
@@ -90,7 +90,7 @@ function Particles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-cyan-400"
+          className="absolute rounded-full bg-[#818CF8]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -151,8 +151,8 @@ function CustomCursor() {
           y: springY,
           width: isHovering ? 32 : 12,
           height: isHovering ? 32 : 12,
-          background: "rgba(0,212,255,0.9)",
-          boxShadow: "0 0 12px rgba(0,212,255,0.8)",
+          background: "rgba(129,140,248,0.9)",
+          boxShadow: "0 0 12px rgba(129,140,248,0.8)",
           transition: "width 0.2s, height 0.2s",
           marginLeft: isHovering ? -10 : 0,
           marginTop: isHovering ? -10 : 0,
@@ -198,12 +198,12 @@ function TypewriterRole() {
   }, [displayed, deleting, roleIndex, pause]);
 
   return (
-    <span className="text-cyan-400">
+    <span className="text-[#818CF8]">
       {displayed}
       <motion.span
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity }}
-        className="inline-block w-[2px] h-[1em] bg-cyan-400 ml-1 align-middle"
+        className="inline-block w-[2px] h-[1em] bg-[#818CF8] ml-1 align-middle"
       />
     </span>
   );
@@ -252,7 +252,7 @@ function StatCounter({ value, label, delay }) {
     >
       <div className="text-2xl sm:text-3xl font-bold text-white font-display">
         {count}
-        <span className="text-cyan-400">+</span>
+        <span className="text-[#818CF8]">+</span>
       </div>
       <div className="text-[10px] sm:text-xs text-gray-500 mt-1 tracking-widest uppercase">
         {label}
@@ -275,7 +275,7 @@ export default function Hero() {
         .font-display { font-family: 'Syne', sans-serif; }
         .font-body { font-family: 'DM Sans', sans-serif; }
         .text-shimmer {
-          background: linear-gradient(90deg, #ffffff 0%, #00D4FF 40%, #ffffff 60%, #FFB800 100%);
+          background: linear-gradient(90deg, #ffffff 0%, #818CF8 40%, #ffffff 60%, #FFB800 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -316,7 +316,7 @@ export default function Hero() {
 
           {/* Status badge */}
           <motion.div
-            className="inline-flex items-center gap-2 mt-4 mb-6 sm:mb-8 px-3 sm:px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 mt-4 mb-6 sm:mb-8 px-3 sm:px-4 py-2 rounded-full border border-[#818CF8]/20 bg-[#818CF8]/5 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -364,11 +364,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
           >
-            I build{" "}
-            <span className="text-white font-medium">fast, scalable</span> and{" "}
-            <span className="text-white font-medium">beautiful</span> web
-            products - currently crafting enterprise supply chain interfaces at{" "}
-            <span className="text-cyan-400 font-medium">Blue Yonder</span>.
+            Crafting{" "}
+            <span className="text-white font-medium">high-performance, scalable</span> and{" "}
+            <span className="text-white font-medium">thoughtful user experiences</span> front-end 
+            systems that power enterprise workflows - currently building enterprise supply chain interfaces at{" "}
+            <span className="text-[#818CF8] font-medium">Blue Yonder</span>.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -382,8 +382,8 @@ export default function Hero() {
               href="#projects"
               className="btn-primary font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#0A0A0F] w-full sm:w-auto"
               style={{
-                background: "linear-gradient(135deg, #00D4FF, #0099BB)",
-                boxShadow: "0 0 30px rgba(0,212,255,0.3)",
+                background: "linear-gradient(135deg, #818CF8, #6366F1)",
+                boxShadow: "0 0 30px rgba(129,140,248,0.3)",
                 padding: "14px 32px",
                 textDecoration: "none",
                 display: "inline-block",
@@ -391,7 +391,7 @@ export default function Hero() {
               }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 50px rgba(0,212,255,0.5)",
+                boxShadow: "0 0 50px rgba(129,140,248,0.5)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -408,7 +408,7 @@ export default function Hero() {
                 textAlign: "center",
                 transition: "border-color 0.3s, background 0.3s",
               }}
-              whileHover={{ scale: 1.05, borderColor: "rgba(0,212,255,0.4)", background: "rgba(255,255,255,0.1)" }}
+              whileHover={{ scale: 1.05, borderColor: "rgba(129,140,248,0.4)", background: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.97 }}
             >
               Let's Talk
@@ -443,7 +443,7 @@ export default function Hero() {
             Scroll
           </span>
           <motion.div
-            className="w-px h-10 bg-gradient-to-b from-cyan-400/60 to-transparent"
+            className="w-px h-10 bg-gradient-to-b from-[#818CF8]/60 to-transparent"
             animate={{ scaleY: [0, 1, 0], originY: 0 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -451,12 +451,12 @@ export default function Hero() {
 
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-32 h-32 pointer-events-none opacity-30">
-          <div className="absolute top-6 left-6 w-8 h-px bg-cyan-400" />
-          <div className="absolute top-6 left-6 w-px h-8 bg-cyan-400" />
+          <div className="absolute top-6 left-6 w-8 h-px bg-[#818CF8]" />
+          <div className="absolute top-6 left-6 w-px h-8 bg-[#818CF8]" />
         </div>
         <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none opacity-30">
-          <div className="absolute bottom-6 right-6 w-8 h-px bg-cyan-400" />
-          <div className="absolute bottom-6 right-6 w-px h-8 bg-cyan-400" />
+          <div className="absolute bottom-6 right-6 w-8 h-px bg-[#818CF8]" />
+          <div className="absolute bottom-6 right-6 w-px h-8 bg-[#818CF8]" />
         </div>
       </section>
     </>

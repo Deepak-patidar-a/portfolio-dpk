@@ -530,7 +530,7 @@ export default function Projects() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-projects {
-          background: linear-gradient(90deg, #00D4FF 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -549,7 +549,7 @@ export default function Projects() {
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
@@ -572,7 +572,7 @@ export default function Projects() {
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(0,212,255,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }}
               />
               <p style={{ color: "#6B7280", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
                 From AI-powered platforms to enterprise UI systems — projects
@@ -653,8 +653,8 @@ export default function Projects() {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  borderColor: "rgba(0,212,255,0.4)",
-                  background: "rgba(0,212,255,0.06)",
+                  borderColor: "rgba(129,140,248,0.4)",
+                  background: "rgba(129,140,248,0.06)",
                 }}
                 whileTap={{ scale: 0.97 }}
               >

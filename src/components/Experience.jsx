@@ -108,17 +108,18 @@ function ExperienceCard({ exp, index }) {
           animate={inView ? { scale: 1, rotate: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <span
+          <img
+            src={exp.logo}
+            alt={exp.company}
             style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 800,
-              fontSize: 13,
-              color: exp.color,
-              letterSpacing: "0.05em",
+                width: 36,
+                height: 36,
+                objectFit: "contain",
+                borderRadius: 6,
+                filter: "brightness(1.1) invert(0)",
+                mixBlendMode: "screen",
             }}
-          >
-            {exp.logo}
-          </span>
+            />
           {/* Current indicator pulse */}
           {exp.current && (
             <motion.div
@@ -177,9 +178,17 @@ function ExperienceCard({ exp, index }) {
                     border: `1px solid ${exp.color}30`,
                   }}
                 >
-                  <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 11, color: exp.color }}>
-                    {exp.logo}
-                  </span>
+                  <img
+                    src={exp.logo}
+                    alt={exp.company}
+                    style={{
+                        width: 32,
+                        height: 32,
+                        objectFit: "contain",
+                        borderRadius: 6,
+                        mixBlendMode: "screen",
+                    }}
+                    />
                 </div>
                 {exp.current && (
                   <span
@@ -275,12 +284,12 @@ function ExperienceCard({ exp, index }) {
                 {exp.period}
               </div>
               <div className="flex items-center gap-2">
-                <span style={{ fontSize: 12, color: "#6B7280", fontFamily: "'DM Sans', sans-serif" }}>
+                <span style={{ fontSize: 14, color: "#6B7280", fontFamily: "'DM Sans', sans-serif" }}>
                   📍 {exp.location}
                 </span>
                 <span
                   style={{
-                    fontSize: 10,
+                    fontSize: 15,
                     color: exp.color,
                     background: exp.color + "15",
                     border: `1px solid ${exp.color}25`,
@@ -427,9 +436,17 @@ function EducationCard() {
           animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 11, color: EDUCATION.color }}>
-            {EDUCATION.logo}
-          </span>
+          <img
+            src={EDUCATION.logo}
+            alt={EDUCATION.university}
+            style={{
+                width: 32,
+                height: 32,
+                objectFit: "contain",
+                borderRadius: 6,
+                mixBlendMode: "screen",
+            }}
+            />
         </motion.div>
       </div>
 
@@ -453,7 +470,17 @@ function EducationCard() {
                 className="flex items-center justify-center rounded-xl"
                 style={{ width: 42, height: 42, background: `linear-gradient(135deg, ${EDUCATION.color}20, ${EDUCATION.color}08)`, border: `1px solid ${EDUCATION.color}30` }}
               >
-                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 11, color: EDUCATION.color }}>{EDUCATION.logo}</span>
+                <img
+                src={EDUCATION.logo}
+                alt={EDUCATION.university}
+                style={{
+                    width: 32,
+                    height: 32,
+                    objectFit: "contain",
+                    borderRadius: 6,
+                    mixBlendMode: "screen",
+                }}
+                />
               </div>
             </div>
             <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff" }}>
@@ -483,7 +510,7 @@ export default function Experience() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-exp {
-          background: linear-gradient(90deg, #00D4FF 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -497,7 +524,7 @@ export default function Experience() {
       >
         {/* Background blobs */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(255,184,0,0.03) 0%, transparent 70%)" }} />
 
@@ -520,7 +547,7 @@ export default function Experience() {
                 <span className="shimmer-exp">made an impact</span>
               </h2>
               <div className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(0,212,255,0.5), transparent)" }} />
+                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }} />
               <p style={{ color: "#6B7280", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
                 5+ years across enterprise SaaS and FinTech — building products
                 that serve real users at scale.
@@ -564,7 +591,7 @@ export default function Experience() {
               }}
             >
               {[
-                { value: "5+", label: "Years Total", color: "#00D4FF" },
+                { value: "5+", label: "Years Total", color: "#818CF8" },
                 { value: "2", label: "Companies", color: "#FFB800" },
                 { value: "60+", label: "APIs Integrated", color: "#A78BFA" },
                 { value: "99.9%", label: "System Uptime", color: "#34D399" },

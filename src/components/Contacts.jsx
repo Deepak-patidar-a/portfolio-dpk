@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { CONTACT_LINKS, AVAILABILITY } from "../data/common";
 import Footer from "./Footer";
+import emailjs from "@emailjs/browser";
 
 function RevealOnScroll({ children, delay = 0, direction = "up" }) {
   const ref = useRef(null);
@@ -154,29 +155,72 @@ function ContactForm() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errors, setErrors] = useState({}) 
+  const [errorMsg, setErrorMsg] = useState("") 
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!form.name.trim())
+            newErrors.name = "Name is required";
+
+        if (!form.email.trim())
+            newErrors.email = "Email is required";
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+            newErrors.email = "Please enter a valid email address";
+
+        if (!form.message.trim())
+            newErrors.message = "Message is required";
+        else if (form.message.trim().length < 10)
+            newErrors.message = "Message must be at least 10 characters";
+
+        return newErrors;
+        };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
 
+    e.preventDefault();
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+        setErrors(validationErrors);
+        return;
+    }
+
+    setErrors({});
     setStatus("sending");
 
-    // Using EmailJS — replace with your actual service/template/user IDs
-    // Install: npm install @emailjs/browser
-    // Then import emailjs from '@emailjs/browser' at the top
-    // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form, 'YOUR_PUBLIC_KEY')
-    //   .then(() => setStatus("success"))
-    //   .catch(() => setStatus("error"));
 
-    // PLACEHOLDER: simulating send for now
-    await new Promise((res) => setTimeout(res, 1500));
-    setStatus("success");
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setStatus("idle"), 4000);
+    emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    { name: form.name, email: form.email, subject: form.subject, message: form.message },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then(async ()  => {
+        await new Promise((res) => setTimeout(res, 1500));
+        setStatus("success");
+        setForm({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus("idle"), 4000);
+    })
+    .catch(async (err) => {
+        await new Promise((res) => setTimeout(res, 1500));
+        if (err.status === 429) {
+        setErrorMsg("Too many requests. Please try again in a few minutes.");
+        } else if (err.status === 400) {
+        setErrorMsg("Invalid request. Please check your details and try again.");
+        } else {
+        setErrorMsg("Failed to send. Please email me directly at deepakpatidar796@gmail.com");
+        }
+        setStatus("error");
+    });
   };
 
   const inputStyle = {
@@ -216,7 +260,7 @@ function ContactForm() {
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Top bar */}
-      <div style={{ height: 2, background: "linear-gradient(to right, #00D4FF, #FFB800, transparent)", borderRadius: 999, marginBottom: 28 }} />
+      <div style={{ height: 2, background: "linear-gradient(to right, #818CF8, #FFB800, transparent)", borderRadius: 999, marginBottom: 28 }} />
 
       <h3
         style={{
@@ -269,21 +313,28 @@ function ContactForm() {
               <div>
                 <label style={labelStyle}>Your Name</label>
                 <input
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="Deepak Patidar"
-                  required
-                  style={inputStyle}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                    e.target.style.background = "rgba(0,212,255,0.03)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.target.style.background = "rgba(255,255,255,0.03)";
-                  }}
-                />
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Deepak Patidar"
+                style={{
+                ...inputStyle,
+                borderColor: errors.name ? "#F87171" : "rgba(255,255,255,0.08)",
+                }}
+                onFocus={(e) => {
+                if (!errors.name) e.target.style.borderColor = "rgba(129,140,248,0.4)";
+                e.target.style.background = "rgba(129,140,248,0.03)";
+                }}
+                onBlur={(e) => {
+                if (!errors.name) e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                e.target.style.background = "rgba(255,255,255,0.03)";
+                }}
+              />
+                {errors.name && (
+                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                    ⚠ {errors.name}
+                    </p>
+                )}
               </div>
               <div>
                 <label style={labelStyle}>Email Address</label>
@@ -294,16 +345,24 @@ function ContactForm() {
                   onChange={handleChange}
                   placeholder="you@company.com"
                   required
-                  style={inputStyle}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                    e.target.style.background = "rgba(0,212,255,0.03)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.target.style.background = "rgba(255,255,255,0.03)";
-                  }}
-                />
+                  style={{
+                ...inputStyle,
+                borderColor: errors.email ? "#F87171" : "rgba(255,255,255,0.08)",
+                }}
+                onFocus={(e) => {
+                if (!errors.email) e.target.style.borderColor = "rgba(129,140,248,0.4)";
+                e.target.style.background = "rgba(129,140,248,0.03)";
+                }}
+                onBlur={(e) => {
+                if (!errors.email) e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                e.target.style.background = "rgba(255,255,255,0.03)";
+                }}
+              />
+                {errors.email && (
+                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                    ⚠ {errors.email}
+                    </p>
+                )}
               </div>
             </div>
 
@@ -315,16 +374,24 @@ function ContactForm() {
                 value={form.subject}
                 onChange={handleChange}
                 placeholder="Frontend role at your company"
-                style={inputStyle}
+                style={{
+                ...inputStyle,
+                borderColor: errors.subject ? "#F87171" : "rgba(255,255,255,0.08)",
+                }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                  e.target.style.background = "rgba(0,212,255,0.03)";
+                if (!errors.subject) e.target.style.borderColor = "rgba(129,140,248,0.4)";
+                e.target.style.background = "rgba(129,140,248,0.03)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255,255,255,0.03)";
+                if (!errors.subject) e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                e.target.style.background = "rgba(255,255,255,0.03)";
                 }}
               />
+                {errors.subject && (
+                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                    ⚠ {errors.subject}
+                    </p>
+                )}
             </div>
 
             {/* Message */}
@@ -339,8 +406,8 @@ function ContactForm() {
                 rows={5}
                 style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                  e.target.style.background = "rgba(0,212,255,0.03)";
+                  e.target.style.borderColor = "rgba(129,140,248,0.4)";
+                  e.target.style.background = "rgba(129,140,248,0.03)";
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = "rgba(255,255,255,0.08)";
@@ -363,9 +430,9 @@ function ContactForm() {
                 borderRadius: 12,
                 color: "#0A0A0F",
                 background: status === "sending"
-                  ? "rgba(0,212,255,0.5)"
-                  : "linear-gradient(135deg, #00D4FF, #0099BB)",
-                boxShadow: "0 0 24px rgba(0,212,255,0.25)",
+                  ? "rgba(129,140,248,0.5)"
+                  : "linear-gradient(135deg, #818CF8, #6366F1)",
+                boxShadow: "0 0 24px rgba(129,140,248,0.25)",
                 border: "none",
                 cursor: status === "sending" ? "not-allowed" : "pointer",
                 width: "100%",
@@ -374,7 +441,7 @@ function ContactForm() {
                 justifyContent: "center",
                 gap: 10,
               }}
-              whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 0 40px rgba(0,212,255,0.45)" } : {}}
+              whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 0 40px rgba(129,140,248,0.45)" } : {}}
               whileTap={status !== "sending" ? { scale: 0.98 } : {}}
             >
               {status === "sending" ? (
@@ -392,9 +459,35 @@ function ContactForm() {
             </motion.button>
 
             {status === "error" && (
-              <p style={{ color: "#F87171", fontSize: 13, textAlign: "center", fontFamily: "'DM Sans', sans-serif" }}>
-                Something went wrong. Please email me directly.
-              </p>
+            <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-xl p-4 flex flex-col gap-3"
+                style={{
+                background: "rgba(248,113,113,0.06)",
+                border: "1px solid rgba(248,113,113,0.2)",
+                }}
+            >
+                <p style={{ color: "#F87171", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
+                ⚠ {errorMsg}
+                </p>
+                <button
+                onClick={() => setStatus("idle")}
+                style={{
+                    background: "none",
+                    border: "1px solid rgba(248,113,113,0.3)",
+                    color: "#F87171",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    fontSize: 12,
+                    cursor: "pointer",
+                    fontFamily: "'DM Sans', sans-serif",
+                    alignSelf: "flex-start",
+                }}
+                >
+                Try Again
+                </button>
+            </motion.div>
             )}
           </motion.form>
         )}
@@ -409,7 +502,7 @@ export default function Contacts() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-contact {
-          background: linear-gradient(90deg, #00D4FF 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -426,7 +519,7 @@ export default function Contacts() {
       >
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(0,212,255,0.04) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(129,140,248,0.04) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
@@ -477,7 +570,7 @@ export default function Contacts() {
                 <div
                   className="rounded-2xl p-6"
                   style={{
-                    background: "linear-gradient(135deg, rgba(52,211,153,0.06), rgba(0,212,255,0.03))",
+                    background: "linear-gradient(135deg, rgba(52,211,153,0.06), rgba(129,140,248,0.03))",
                     border: "1px solid rgba(52,211,153,0.15)",
                   }}
                 >

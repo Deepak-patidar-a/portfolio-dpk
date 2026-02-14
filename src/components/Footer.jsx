@@ -1,7 +1,7 @@
 import { motion} from "framer-motion";
 
 const Footer = () => {
-  const NAV_LINKS = ["About", "Skills", "Work", "Projects", "Contact"];
+  const NAV_LINKS = ["About", "Skills", "Work", "Projects", "Learnings", "Contact"];
 
   return (
     <footer
@@ -23,9 +23,9 @@ const Footer = () => {
                 marginBottom: 6,
               }}
             >
-              <span style={{ color: "#00D4FF" }}>&lt;</span>
+              <span style={{ color: "#818CF8" }}>&lt;</span>
               DP
-              <span style={{ color: "#00D4FF" }}>/&gt;</span>
+              <span style={{ color: "#818CF8" }}>/&gt;</span>
             </div>
             <div style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.6, maxWidth: 260 }}>
               Senior Frontend Engineer · React Specialist ·
@@ -44,7 +44,7 @@ const Footer = () => {
                   textDecoration: "none",
                   letterSpacing: "0.06em",
                 }}
-                whileHover={{ color: "#00D4FF", y: -2 }}
+                whileHover={{ color: "#818CF8", y: -2 }}
               >
                 {link}
               </motion.a>
@@ -75,8 +75,8 @@ const Footer = () => {
                 }}
                 whileHover={{
                   scale: 1.12,
-                  background: "rgba(0,212,255,0.08)",
-                  borderColor: "rgba(0,212,255,0.3)",
+                  background: "rgba(129,140,248,0.08)",
+                  borderColor: "rgba(129,140,248,0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >

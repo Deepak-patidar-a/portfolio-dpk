@@ -232,7 +232,7 @@ export default function Skills() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-skills {
-          background: linear-gradient(90deg, #00D4FF 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -248,7 +248,7 @@ export default function Skills() {
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 65%)",
+            background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 65%)",
           }}
         />
 
@@ -272,7 +272,7 @@ export default function Skills() {
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(0,212,255,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }}
               />
             </div>
           </RevealOnScroll>
@@ -341,7 +341,7 @@ export default function Skills() {
               }}
             >
               {[
-                { value: "5+", label: "Years Experience", color: "#00D4FF" },
+                { value: "5+", label: "Years Experience", color: "#818CF8" },
                 { value: "20+", label: "Projects Shipped", color: "#FFB800" },
                 { value: "2", label: "Frameworks Expert", color: "#A78BFA" },
                 { value: "8+", label: "Tools Mastered", color: "#34D399" },

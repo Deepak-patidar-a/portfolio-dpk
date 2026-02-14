@@ -1,3 +1,7 @@
+import blueyonderLogo from "../assets/images/blueyonder_logo.jpeg";
+import infosysLogo from "../assets/images/infosys_logo.jpeg";
+import uitRgpvLogo from "../assets/images/uit_rgpv.jpeg";  
+
 export const EXPERIENCES = [
   {
     id: "blueyonder",
@@ -8,38 +12,38 @@ export const EXPERIENCES = [
     location: "Hyderabad",
     type: "Full-time",
     current: true,
-    color: "#00D4FF",
-    logo: "BY",
+    color: "#818CF8",
+    logo: blueyonderLogo,
     domain: "Supply Chain SaaS · Enterprise",
     highlights: [
-      {
-        metric: "20+",
-        label: "Enterprise Screens",
-        desc: "Led frontend development for the Competitive Pricing Module in the Merchandise Operations domain using React and Material UI.",
-      },
-      {
-        metric: "60+",
-        label: "REST APIs Integrated",
-        desc: "Integrated APIs with robust client-side validation using io-ts, error handling, and secure frontend patterns collaborating on API contracts.",
-      },
-      {
-        metric: "99.9%",
-        label: "System Uptime",
-        desc: "Contributed to backend stability by supporting SQL injection prevention and conducting RCA on 40+ production issues.",
-      },
-      {
-        metric: "15–17",
-        label: "Attributes per Product",
-        desc: "Designed and optimized a high-traffic product landing page with debounce search, filtering, and pagination for performance.",
-      },
+    {
+    metric: "20+",
+    label: "Enterprise Screens",
+    desc: "Led frontend development for the Competitive Pricing module within Merchandise Operations, delivering scalable React + Material UI interfaces."
+    },
+    {
+    metric: "60+",
+    label: "REST APIs Integrated",
+    desc: "Integrated APIs with strong runtime validation using io-ts, structured error handling, and collaboration on API contract design."
+    },
+    {
+    metric: "99.9%",
+    label: "System Uptime",
+    desc: "Supported production stability through incident RCA, security best-practice implementation, and resolution of 40+ production issues."
+    },
+    {
+    metric: "15–17",
+    label: "Attributes per Product",
+    desc: "Designed and optimized high-traffic product workflows featuring debounced search, filtering, and pagination."
+    }
     ],
     bullets: [
-      "Architected scalable frontend for Competitive Pricing Module — 20+ enterprise screens with React & Material UI",
-      "Improved rendering performance using memoization, controlled re-renders, and efficient table layouts",
-      "Integrated 60+ REST APIs with io-ts validation, secure frontend patterns, and robust error handling",
-      "Mentored junior engineers through code reviews and collaborated directly with architects and UX teams",
-      "Conducted RCA on 40+ production issues and improved system uptime to 99.9%",
-      "Collaborated on API contract design across backend, product, and UX teams in distributed systems",
+    "Architected scalable frontend for the Competitive Pricing module — delivering 20+ enterprise screens using React and Material UI.",
+    "Improved rendering performance through memoization, controlled re-renders, and optimized table layouts.",
+    "Integrated 60+ REST APIs using io-ts validation, secure frontend patterns, and resilient error handling.",
+    "Mentored junior engineers via code reviews and collaborated closely with architects and UX teams.",
+    "Performed RCA on 60+ production incidents contributing to 99.9% system uptime.",
+    "Partnered on API contract design across backend, product, and UX teams within distributed environments."
     ],
     stack: ["React.js", "TypeScript", "Material UI", "Redux", "React Query", "io-ts", "REST APIs", "SQL"],
   },
@@ -53,26 +57,26 @@ export const EXPERIENCES = [
     type: "Full-time",
     current: false,
     color: "#FFB800",
-    logo: "IN",
+    logo: infosysLogo,
     domain: "Banking Platform · FinTech",
     highlights: [
       {
-        metric: "50K+",
-        label: "Users Served",
-        desc: "Built React-based UIs for a secure banking platform ensuring data flow integrity for tens of thousands of users.",
-      },
-      {
-        metric: "100%",
-        label: "Cross-browser Compat.",
-        desc: "Delivered fully responsive, cross-browser compatible interfaces with component reusability at scale.",
-      },
+    metric: "50K+",
+    label: "Users Supported",
+    desc: "Built React interfaces for a secure banking platform serving tens of thousands of users."
+    },
+    {
+    metric: "100%",
+    label: "Cross-browser Compatibility",
+    desc: "Delivered responsive, reusable UI components across modern browsers and devices."
+    }
     ],
     bullets: [
-      "Developed and maintained React-based user interfaces for a secure banking platform",
-      "Focused on responsive design, component reusability, and cross-browser compatibility",
-      "Integrated frontend with REST APIs for third-party banking services for 50K+ users",
-      "Implemented client-side validations and improved error handling for critical banking workflows",
-      "Collaborated with backend and QA teams to improve frontend reliability and security",
+      "Developed and maintained React-based user interfaces for enterprise banking workflows.",
+    "Focused on responsive design, reusable components, and cross-browser compatibility.",
+    "Integrated REST APIs for third-party banking services supporting 50K+ users.",
+    "Implemented client-side validation improving workflow reliability.",
+    "Collaborated with backend and QA teams to enhance system stability."
     ],
     stack: ["React.js", "JavaScript ES6+", "HTML5", "CSS3", "REST APIs", "Git"],
   },
@@ -85,5 +89,5 @@ export const EDUCATION = {
   location: "Bhopal, M.P",
   period: "Jul 2016 – Apr 2020",
   color: "#A78BFA",
-  logo: "UIT",
+  logo: uitRgpvLogo,
 }

@@ -1,52 +1,61 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const NAV_LINKS = ["About", "Skills", "Work", "Projects", "Contact"];
+const NAV_LINKS = ["About", "Skills", "Work", "Projects","Learnings", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // ── Scroll detection — add background when page scrolled ──
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [])
 
-  // ── Active section detection via IntersectionObserver ──
-  useEffect(() => {
-    const observers = [];
-    NAV_LINKS.forEach((link) => {
-      const el = document.getElementById(link.toLowerCase());
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(link.toLowerCase());
-        },
-        { threshold: 0.3, rootMargin: "-80px 0px 0px 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
 
-  // ── Close mobile menu on resize ──
+    useEffect(() => {
+    const onScroll = () => {
+        const scrollY = window.scrollY + 100; // offset for navbar height
+
+        // Get all sections and find which one we're currently in
+        const sections = NAV_LINKS.map((link) => {
+        const id = link.toLowerCase();
+        const el = document.getElementById(id);
+        if (!el) return null;
+        return {
+            id,
+            top: el.offsetTop,
+            bottom: el.offsetTop + el.offsetHeight,
+        };
+        }).filter(Boolean);
+
+        // Find the section whose range contains current scroll position
+        const current = sections.findLast(
+        (section) => scrollY >= section.top
+        );
+
+        if (current) setActiveSection(current.id);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // run once on mount
+    return () => window.removeEventListener("scroll", onScroll);
+    }, [])
+
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
+  }, [])
 
-  // ── Lock body scroll when mobile menu open ──
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+  }, [mobileOpen])
 
   const handleNavClick = (item) => {
     setMobileOpen(false);
@@ -61,7 +70,7 @@ export default function Navbar() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
-        .nav-link-active { color: #00D4FF !important; }
+        .nav-link-active { color: #818CF8 !important; }
       `}</style>
 
       {/* ── Main Navbar ── */}
@@ -83,7 +92,6 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[72px]">
 
-          {/* Logo */}
           <motion.a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
@@ -98,12 +106,11 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            <span style={{ color: "#00D4FF" }}>&lt;</span>
+            <span style={{ color: "#818CF8" }}>&lt;</span>
             DP
-            <span style={{ color: "#00D4FF" }}>/&gt;</span>
+            <span style={{ color: "#818CF8" }}>/&gt;</span>
           </motion.a>
 
-          {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((item) => {
               const isActive = activeSection === item.toLowerCase();
@@ -116,17 +123,16 @@ export default function Navbar() {
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: 13,
                     fontWeight: isActive ? 600 : 400,
-                    color: isActive ? "#00D4FF" : "#9CA3AF",
+                    color: isActive ? "#818CF8" : "#9CA3AF",
                     textDecoration: "none",
                     letterSpacing: "0.06em",
                     position: "relative",
                     paddingBottom: 2,
                     transition: "color 0.2s",
                   }}
-                  whileHover={{ color: "#00D4FF", y: -1 }}
+                  whileHover={{ color: "#818CF8", y: -1 }}
                 >
                   {item}
-                  {/* Active underline */}
                   <motion.span
                     style={{
                       position: "absolute",
@@ -135,8 +141,8 @@ export default function Navbar() {
                       right: 0,
                       height: 1.5,
                       borderRadius: 999,
-                      background: "#00D4FF",
-                      boxShadow: "0 0 6px rgba(0,212,255,0.6)",
+                      background: "#818CF8",
+                      boxShadow: "0 0 6px rgba(129,140,248,0.6)",
                     }}
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isActive ? 1 : 0 }}
@@ -147,9 +153,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Desktop Resume button */}
           <motion.a
-            href="/resume.pdf"
+            href="/Deepak_Patidar_Resume.pdf"
             download
             className="hidden md:flex items-center gap-2"
             style={{
@@ -158,8 +163,8 @@ export default function Navbar() {
               fontSize: 11,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#00D4FF",
-              border: "1px solid rgba(0,212,255,0.3)",
+              color: "#818CF8",
+              border: "1px solid rgba(129,140,248,0.3)",
               borderRadius: 8,
               padding: "9px 18px",
               textDecoration: "none",
@@ -167,8 +172,8 @@ export default function Navbar() {
             }}
             whileHover={{
               scale: 1.04,
-              backgroundColor: "rgba(0,212,255,0.08)",
-              borderColor: "rgba(0,212,255,0.6)",
+              backgroundColor: "rgba(129,140,248,0.08)",
+              borderColor: "rgba(129,140,248,0.6)",
             }}
             whileTap={{ scale: 0.97 }}
           >
@@ -240,7 +245,7 @@ export default function Navbar() {
                 style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
               >
                 <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff" }}>
-                  <span style={{ color: "#00D4FF" }}>&lt;</span>DP<span style={{ color: "#00D4FF" }}>/&gt;</span>
+                  <span style={{ color: "#818CF8" }}>&lt;</span>DP<span style={{ color: "#818CF8" }}>/&gt;</span>
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -276,22 +281,22 @@ export default function Navbar() {
                         fontFamily: "'Syne', sans-serif",
                         fontWeight: 700,
                         fontSize: 18,
-                        color: isActive ? "#00D4FF" : "#9CA3AF",
+                        color: isActive ? "#818CF8" : "#9CA3AF",
                         textDecoration: "none",
-                        background: isActive ? "rgba(0,212,255,0.06)" : "transparent",
-                        border: `1px solid ${isActive ? "rgba(0,212,255,0.15)" : "transparent"}`,
+                        background: isActive ? "rgba(129,140,248,0.06)" : "transparent",
+                        border: `1px solid ${isActive ? "rgba(129,140,248,0.15)" : "transparent"}`,
                         transition: "all 0.2s",
                       }}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.06 }}
                       whileHover={{
-                        color: "#00D4FF",
-                        background: "rgba(0,212,255,0.05)",
+                        color: "#818CF8",
+                        background: "rgba(129,140,248,0.05)",
                         x: 4,
                       }}
                     >
-                      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#00D4FF", opacity: 0.5 }}>
+                      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#818CF8", opacity: 0.5 }}>
                         0{i + 1}
                       </span>
                       {item}
@@ -303,7 +308,7 @@ export default function Navbar() {
               {/* Bottom CTA */}
               <div className="px-6 pb-8">
                 <motion.a
-                  href="/resume.pdf"
+                  href="/Deepak_Patidar_Resume.pdf"
                   download
                   className="flex items-center justify-center gap-2 w-full py-4 rounded-xl"
                   style={{
@@ -313,8 +318,8 @@ export default function Navbar() {
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
                     color: "#0A0A0F",
-                    background: "linear-gradient(135deg, #00D4FF, #0099BB)",
-                    boxShadow: "0 0 24px rgba(0,212,255,0.25)",
+                    background: "linear-gradient(135deg, #818CF8, #6366F1)",
+                    boxShadow: "0 0 24px rgba(129,140,248,0.25)",
                     textDecoration: "none",
                   }}
                   whileHover={{ scale: 1.03 }}
@@ -342,7 +347,7 @@ export default function Navbar() {
                         fontSize: 20,
                         textDecoration: "none",
                       }}
-                      whileHover={{ scale: 1.1, borderColor: "rgba(0,212,255,0.3)" }}
+                      whileHover={{ scale: 1.1, borderColor: "rgba(129,140,248,0.3)" }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {s.icon}

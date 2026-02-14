@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import deepak_patidar from "../assets/images/deepak_patidar.jpeg";
 
 function RevealOnScroll({ children, delay = 0, direction = "up" }) {
   const ref = useRef(null);
@@ -36,7 +37,7 @@ function PhotoCard() {
       <motion.div
         className="absolute -inset-3 rounded-3xl opacity-40"
         style={{
-          background: "linear-gradient(135deg, rgba(0,212,255,0.3), transparent 50%, rgba(255,184,0,0.2))",
+          background: "linear-gradient(135deg, rgba(129,140,248,0.3), transparent 50%, rgba(255,184,0,0.2))",
           filter: "blur(12px)",
         }}
         animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -48,23 +49,22 @@ function PhotoCard() {
         className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10"
         style={{ background: "linear-gradient(145deg, #0D1B2A, #0A0A0F)" }}
       >
-        {/* Replace this block with your actual photo:
-            <img src="/your-photo.jpg" alt="Deepak Patidar" className="w-full h-full object-cover" />
-        */}
-        <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+            <img src={deepak_patidar} alt="Deepak Patidar" className="w-full h-full object-cover" />
+        
+        {/* <div className="w-full h-full flex flex-col items-center justify-center gap-4">
           <div
-            className="w-24 h-24 rounded-full border-2 border-cyan-400/40 flex items-center justify-center"
-            style={{ background: "rgba(0,212,255,0.05)" }}
+            className="w-24 h-24 rounded-full border-2 border-[#818CF8]/40 flex items-center justify-center"
+            style={{ background: "rgba(129,140,248,0.05)" }}
           >
-            <span className="font-display font-bold text-3xl text-cyan-400">DP</span>
+            <span className="font-display font-bold text-3xl text-[#818CF8]">DP</span>
           </div>
           <span className="text-gray-600 text-sm font-body tracking-wider">Replace with your photo</span>
-        </div>
+        </div> */}
 
         {/* Animated scan line */}
         <motion.div
           className="absolute left-0 right-0 h-px opacity-20"
-          style={{ background: "linear-gradient(90deg, transparent, #00D4FF, transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, #818CF8, transparent)" }}
           animate={{ top: ["0%", "100%", "0%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -72,8 +72,8 @@ function PhotoCard() {
 
       {/* Corner brackets */}
       <div className="absolute -top-1 -left-1 w-6 h-6">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-cyan-400" />
-        <div className="absolute top-0 left-0 w-[2px] h-full bg-cyan-400" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-[#818CF8]" />
+        <div className="absolute top-0 left-0 w-[2px] h-full bg-[#818CF8]" />
       </div>
       <div className="absolute -bottom-1 -right-1 w-6 h-6">
         <div className="absolute bottom-0 right-0 w-full h-[2px] bg-yellow-400/70" />
@@ -82,13 +82,13 @@ function PhotoCard() {
 
       {/* Badge — experience */}
       <motion.div
-        className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl border border-cyan-400/30 backdrop-blur-sm"
-        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(0,212,255,0.12)" }}
+        className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl border border-[#818CF8]/30 backdrop-blur-sm"
+        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(129,140,248,0.12)" }}
         initial={{ opacity: 0, scale: 0, rotate: -10 }}
         animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <div className="font-display font-extrabold text-3xl text-cyan-400 leading-none">5+</div>
+        <div className="font-display font-extrabold text-3xl text-[#818CF8] leading-none">5+</div>
         <div className="text-[11px] text-gray-400 tracking-widest uppercase mt-1 font-body">Years Exp.</div>
       </motion.div>
 
@@ -113,7 +113,7 @@ function TraitCard({ icon, title, desc, delay, accent = "cyan" }) {
 
   const accentColor =
     accent === "cyan"
-      ? { border: "rgba(0,212,255,0.15)", glow: "rgba(0,212,255,0.06)", line: "#00D4FF" }
+      ? { border: "rgba(129,140,248,0.15)", glow: "rgba(129,140,248,0.06)", line: "#818CF8" }
       : { border: "rgba(255,184,0,0.15)", glow: "rgba(255,184,0,0.06)", line: "#FFB800" };
 
   return (
@@ -185,7 +185,7 @@ export default function About() {
     <>
       <style>{`
         .about-shimmer {
-          background: linear-gradient(90deg, #00D4FF, #FFB800);
+          background: linear-gradient(90deg, #818CF8, #FFB800);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -199,7 +199,7 @@ export default function About() {
         {/* Background blobs */}
         <div
           className="absolute top-20 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(0,212,255,0.035) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.035) 0%, transparent 65%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -215,7 +215,7 @@ export default function About() {
                 The person behind{" "}
                 <span className="about-shimmer">the code</span>
               </h2>
-              <div className="mt-5 h-px w-32 bg-gradient-to-r from-cyan-400/60 to-transparent" />
+              <div className="mt-5 h-px w-32 bg-gradient-to-r from-[#818CF8]/60 to-transparent" />
             </div>
           </RevealOnScroll>
 
@@ -236,7 +236,7 @@ export default function About() {
                   Hey, I'm{" "}
                   <span className="text-white font-semibold font-display">Deepak Patidar</span>{" "}
                   - a Frontend Developer with{" "}
-                  <span className="text-cyan-400 font-medium">5+ years of experience</span>{" "}
+                  <span className="text-[#818CF8] font-medium">5+ years of experience</span>{" "}
                   building fast, polished, and scalable web applications.
                 </p>
               </RevealOnScroll>
@@ -246,16 +246,15 @@ export default function About() {
                   Currently at{" "}
                   <span className="text-white font-medium">Blue Yonder</span>, a global supply
                   chain SaaS company, where I architect complex UI systems used by enterprises
-                  worldwide. My stack spans React, TypeScript, Javascript, Redux, REST API's, Tailwind CSS - and I also handle basic
-                  backend integrations, giving me a complete picture of how products are built
-                  end to end.
+                  worldwide. My stack spans React, TypeScript, JavaScript, Redux, REST APIs, Tailwind CSS. also work with backend integrations, 
+                  giving me an end-to-end perspective on how modern products are designed, built, and delivered.
                 </p>
               </RevealOnScroll>
 
               <RevealOnScroll delay={0.3}>
                 <p className="text-gray-400 text-base leading-relaxed">
                   I believe great frontend is equal parts{" "}
-                  <span className="text-white font-medium">engineering discipline</span> and{" "}
+                  <span className="text-white font-medium">technical discipline</span> and{" "}
                   <span className="text-white font-medium">design sensibility</span>. I don't
                   just make things work - I make them feel right too.
                 </p>
@@ -277,18 +276,18 @@ export default function About() {
                     href="#contact"
                     className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-[#0A0A0F]"
                     style={{
-                      background: "linear-gradient(135deg, #00D4FF, #0099BB)",
-                      boxShadow: "0 0 24px rgba(0,212,255,0.25)",
+                      background: "linear-gradient(135deg, #818CF8, #6366F1)",
+                      boxShadow: "0 0 24px rgba(129,140,248,0.25)",
                     }}
-                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(0,212,255,0.4)" }}
+                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(129,140,248,0.4)" }}
                     whileTap={{ scale: 0.97 }}
                   >
                     Hire Me
                   </motion.a>
                   <motion.a
-                    href="/resume.pdf"
+                    href="/Deepak_Patidar_Resume.pdf"
                     download
-                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-white border border-white/10 bg-white/5 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300"
+                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-white border border-white/10 bg-white/5 hover:border-[#818CF8]/30 hover:bg-white/10 transition-all duration-300"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -326,8 +325,8 @@ export default function About() {
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
                     style={{
-                      background: "rgba(0,212,255,0.06)",
-                      border: "1px solid rgba(0,212,255,0.12)",
+                      background: "rgba(129,140,248,0.06)",
+                      border: "1px solid rgba(129,140,248,0.12)",
                     }}
                   >
                     {item.icon}

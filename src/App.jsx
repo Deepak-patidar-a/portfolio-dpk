@@ -5,6 +5,8 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Contacts from './components/Contacts'
 import Navbar from './components/Navbar'
+import Learnings from './components/Learnings'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Skills />
       <Experience/>
       <Projects/>
+      <Learnings/>
       <Contacts/>
       {/* More sections coming: Skills, Experience, Projects, Contact */}
     </div>

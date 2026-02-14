@@ -2,8 +2,8 @@ export const SKILL_CATEGORIES = [
   {
     id: "core",
     label: "Frontend Core",
-    color: "#00D4FF",
-    glow: "rgba(0,212,255,0.15)",
+    color: "#818CF8",
+    glow: "rgba(129,140,248,0.15)",
     skills: [
       { name: "React.js", level: 95, icon: "⚛️", highlight: true },
       { name: "JavaScript ES6+", level: 95, icon: "🟨", highlight: true },
