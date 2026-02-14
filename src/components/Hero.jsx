@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-
-const ROLES = [
-  "Frontend Developer",
-  "UI Architect",
-  "React Specialist",
-  "Senior Frontend Engineer",
-  "Full Stack Explorer",
-];
+import { ROLES } from "../data/common";
 
 // Animated grid background
 function GridBackground() {
@@ -18,7 +11,7 @@ function GridBackground() {
 
       {/* Animated gradient orbs */}
       <motion.div
-        className="absolute top-[-20%] left-[-10%] w-150 h-[600px] rounded-full"
+        className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full"
         style={{
           background:
             "radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)",
@@ -152,7 +145,7 @@ function CustomCursor() {
     <>
       {/* Main dot */}
       <motion.div
-        className="fixed top-0 left-0 z-[9999] rounded-full pointer-events-none mix-blend-screen"
+        className="custom-cursor fixed top-0 left-0 z-[9999] rounded-full pointer-events-none mix-blend-screen"
         style={{
           x: springX,
           y: springY,
@@ -257,11 +250,11 @@ function StatCounter({ value, label, delay }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay / 1000 + 1.5 }}
     >
-      <div className="text-3xl font-bold text-white font-display">
+      <div className="text-2xl sm:text-3xl font-bold text-white font-display">
         {count}
         <span className="text-cyan-400">+</span>
       </div>
-      <div className="text-xs text-gray-500 mt-1 tracking-widest uppercase">
+      <div className="text-[10px] sm:text-xs text-gray-500 mt-1 tracking-widest uppercase">
         {label}
       </div>
     </motion.div>
@@ -275,6 +268,10 @@ export default function Hero() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         * { cursor: none !important; }
+        @media (hover: none) and (pointer: coarse) {
+          * { cursor: auto !important; }
+          .custom-cursor { display: none !important; }
+        }
         .font-display { font-family: 'Syne', sans-serif; }
         .font-body { font-family: 'DM Sans', sans-serif; }
         .text-shimmer {
@@ -312,57 +309,24 @@ export default function Hero() {
         <GridBackground />
         <Particles />
 
-        {/* Navbar */}
-        <motion.nav
-          className="fixed top-0 left-0 right-0 flex items-center justify-between px-8 py-5 z-50 border-b border-white/5 backdrop-blur-md"
-          style={{ background: "rgba(10,10,15,0.85)" }}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="font-display font-bold text-white text-xl tracking-tight">
-            <span className="text-cyan-400">&lt;</span>
-            YN
-            <span className="text-cyan-400">/&gt;</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm text-gray-400 font-body">
-            {["About", "Skills", "Work", "Projects", "Contact"].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-cyan-400 transition-colors duration-200 tracking-wide"
-                whileHover={{ y: -2 }}
-              >
-                {item}
-              </motion.a>
-            ))}
-          </div>
-          <motion.a
-            href="/resume.pdf"
-            download
-            className="hidden md:flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-cyan-400 border border-cyan-400/30 px-4 py-2 rounded hover:bg-cyan-400/10 transition-all duration-300"
-            whileHover={{ scale: 1.03 }}
-          >
-            Resume ↓
-          </motion.a>
-        </motion.nav>
+        {/* Navbar is now in its own Navbar.jsx component — rendered from App.jsx */}
 
         {/* Main content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24 md:pt-0">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 text-center pt-10 md:pt-0">
 
           {/* Status badge */}
           <motion.div
-            className="inline-flex items-center gap-2 mt-4 mb-8 px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 mt-4 mb-6 sm:mb-8 px-3 sm:px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <motion.span
-              className="w-2 h-2 rounded-full bg-emerald-400"
+              className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"
               animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <span className="text-xs text-gray-400 tracking-widest uppercase font-body">
+            <span className="text-xs text-gray-400 tracking-widest uppercase font-body whitespace-nowrap">
               Open to Opportunities
             </span>
           </motion.div>
@@ -373,10 +337,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="font-display font-extrabold leading-none mb-2">
+            <h1 className="font-display font-extrabold leading-none mb-2 px-2">
               <span
-                className="text-shimmer"
-                style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)" }}
+                className="text-shimmer block"
+                style={{ fontSize: "clamp(2.8rem, 12vw, 7rem)" }}
               >
                 Deepak Patidar
               </span>
@@ -385,7 +349,7 @@ export default function Hero() {
 
           {/* Typewriter role */}
           <motion.div
-            className="font-display text-2xl md:text-3xl font-semibold mb-6 h-10"
+            className="font-display text-xl sm:text-2xl md:text-3xl font-semibold mb-5 sm:mb-6 min-h-[2rem] sm:min-h-[2.5rem]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -395,7 +359,7 @@ export default function Hero() {
 
           {/* Tagline */}
           <motion.p
-            className="font-body text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="font-body text-gray-400 text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
@@ -403,23 +367,27 @@ export default function Hero() {
             I build{" "}
             <span className="text-white font-medium">fast, scalable</span> and{" "}
             <span className="text-white font-medium">beautiful</span> web
-            products - currently crafting supply chain interfaces at{" "}
+            products - currently crafting enterprise supply chain interfaces at{" "}
             <span className="text-cyan-400 font-medium">Blue Yonder</span>.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-4 mb-16 sm:mb-16 px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
           >
             <motion.a
               href="#projects"
-              className="btn-primary font-display font-semibold tracking-wider uppercase text-sm px-8 py-4 rounded-lg text-[#0A0A0F]"
+              className="btn-primary font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#0A0A0F] w-full sm:w-auto"
               style={{
                 background: "linear-gradient(135deg, #00D4FF, #0099BB)",
                 boxShadow: "0 0 30px rgba(0,212,255,0.3)",
+                padding: "14px 32px",
+                textDecoration: "none",
+                display: "inline-block",
+                textAlign: "center",
               }}
               whileHover={{
                 scale: 1.05,
@@ -432,27 +400,34 @@ export default function Hero() {
 
             <motion.a
               href="#contact"
-              className="font-display font-semibold tracking-wider uppercase text-sm px-8 py-4 rounded-lg text-white border border-white/10 bg-white/5 backdrop-blur-sm hover:border-cyan-400/40 hover:bg-white/10 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
+              className="font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-white border border-white/10 bg-white/5 backdrop-blur-sm w-full sm:w-auto"
+              style={{
+                padding: "14px 32px",
+                textDecoration: "none",
+                display: "inline-block",
+                textAlign: "center",
+                transition: "border-color 0.3s, background 0.3s",
+              }}
+              whileHover={{ scale: 1.05, borderColor: "rgba(0,212,255,0.4)", background: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.97 }}
             >
               Let's Talk
             </motion.a>
           </motion.div>
 
-          {/* Stats row */}
+          {/* Stats row — 2x2 grid on mobile, single row on desktop */}
           <motion.div
-            className="flex items-center justify-center gap-12 md:gap-20"
+            className="grid grid-cols-2 sm:flex sm:flex-row sm:items-center sm:justify-center gap-12 md:gap-20 sm:gap-0 px-4 sm:px-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
           >
             <StatCounter value={5} label="Years Exp." delay={200} />
-            <div className="w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-white/10" />
             <StatCounter value={20} label="Projects" delay={400} />
-            <div className="w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-white/10" />
             <StatCounter value={8} label="Tech Stack" delay={600} />
-            <div className="w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-white/10" />
             <StatCounter value={2} label="Companies" delay={800} />
           </motion.div>
         </div>
