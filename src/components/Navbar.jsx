@@ -61,7 +61,7 @@ export default function Navbar() {
     setMobileOpen(false);
     const el = document.getElementById(item.toLowerCase());
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      const top = el.getBoundingClientRect().top + window.scrollY  -72;
       window.scrollTo({ top, behavior: "smooth" });
     }
   };

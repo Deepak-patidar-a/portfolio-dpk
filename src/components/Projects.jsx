@@ -176,7 +176,7 @@ function FeaturedCard({ project }) {
       <div style={{ height: 3, background: `linear-gradient(to right, ${project.color}, ${project.color}50, transparent)` }} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        {/* Left — content */}
+        {/* Left -content */}
         <div className="p-8 md:p-12 flex flex-col justify-between gap-8">
           {/* Header */}
           <div>
@@ -351,7 +351,7 @@ function FeaturedCard({ project }) {
           </div>
         </div>
 
-        {/* Right — Mockup */}
+        {/* Right -Mockup */}
         <div className="p-8 md:p-10 flex items-center justify-center">
           <div className="w-full max-w-lg">
             <BrowserMockup project={project} isVisible={inView} />
@@ -530,7 +530,7 @@ export default function Projects() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-projects {
-          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
+          background: linear-gradient(90deg, #0D9488 0%, #DC2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -575,7 +575,7 @@ export default function Projects() {
                 style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }}
               />
               <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
-                From AI-powered platforms to enterprise UI systems — projects
+                From AI-powered platforms to enterprise UI systems -projects
                 that solve real problems and push the frontend craft.
               </p>
             </div>
@@ -583,7 +583,7 @@ export default function Projects() {
 
           {/* ── Featured Project ── */}
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 20 }}>
+            <p style={{ color: "#78716C", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 20 }}>
               Featured Project
             </p>
           </RevealOnScroll>
@@ -594,7 +594,7 @@ export default function Projects() {
 
           {/* ── Other Projects ── */}
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginTop: 48, marginBottom: 24 }}>
+            <p style={{ color: "#78716C", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginTop: 48, marginBottom: 24 }}>
               More Projects
             </p>
           </RevealOnScroll>

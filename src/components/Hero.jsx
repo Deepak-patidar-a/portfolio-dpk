@@ -124,8 +124,8 @@ function CustomCursor() {
 
   useEffect(() => {
     const move = (e) => {
-      cursorX.set(e.clientX - 8);
-      cursorY.set(e.clientY - 8);
+      cursorX.set(e.clientX  -8);
+      cursorY.set(e.clientY  -8);
     };
     const enterLink = () => setIsHovering(true);
     const leaveLink = () => setIsHovering(false);
@@ -309,7 +309,7 @@ export default function Hero() {
         <GridBackground />
         <Particles />
 
-        {/* Navbar is now in its own Navbar.jsx component — rendered from App.jsx */}
+        {/* Navbar is now in its own Navbar.jsx component -rendered from App.jsx */}
 
         {/* Main content */}
         <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 text-center pt-10 md:pt-0">
@@ -336,16 +336,27 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-          >
+            >
             <h1 className="font-display font-extrabold leading-none mb-2 px-2">
-              <span
+                <span
+                style={{ 
+                    fontSize: "clamp(1.2rem, 4vw, 2rem)", 
+                    color: "#78716C",
+                    fontWeight: 600,
+                    display: "block",
+                    marginBottom: "0.5rem",
+                }}
+                >
+                👋 Hi, I'm
+                </span>
+                <span
                 className="text-shimmer block"
                 style={{ fontSize: "clamp(2.8rem, 12vw, 7rem)" }}
-              >
+                >
                 Deepak Patidar
-              </span>
+                </span>
             </h1>
-          </motion.div>
+            </motion.div>
 
           {/* Typewriter role */}
           <motion.div
@@ -367,7 +378,7 @@ export default function Hero() {
             Crafting{" "}
             <span className="text-black font-medium">high-performance, scalable</span> and{" "}
             <span className="text-black font-medium">thoughtful user experiences</span> front-end 
-            systems that power enterprise workflows - currently building enterprise supply chain interfaces at{" "}
+            systems that power enterprise workflows  -currently building enterprise supply chain interfaces at{" "}
             <span className="text-[#14B8A6] font-medium">Blue Yonder</span>.
           </motion.p>
 
@@ -417,7 +428,7 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Stats row — 2x2 grid on mobile, single row on desktop */}
+          {/* Stats row -2x2 grid on mobile, single row on desktop */}
           <motion.div
             className="grid grid-cols-2 sm:flex sm:flex-row sm:items-center sm:justify-center gap-12 md:gap-20 sm:gap-0 px-4 sm:px-0"
             initial={{ opacity: 0 }}

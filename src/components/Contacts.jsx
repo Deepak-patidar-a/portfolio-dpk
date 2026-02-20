@@ -225,17 +225,17 @@ function ContactForm() {
 
   const inputStyle = {
     width: "100%",
-    background: "rgba(255,255,255,0.02)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(255,255,255,0.5)",           
+    border: "1px solid rgba(0,0,0,0.12)",         
     borderRadius: 12,
     padding: "14px 18px",
-    color: "#57534E",
+    color: "#1C1917",                              
     fontFamily: "'DM Sans', sans-serif",
     fontSize: 14,
     outline: "none",
     transition: "border-color 0.2s, background 0.2s",
     boxSizing: "border-box",
-  };
+    };
 
   const labelStyle = {
     display: "block",
@@ -249,250 +249,279 @@ function ContactForm() {
 
   return (
     <motion.div
-      ref={ref}
-      className="rounded-2xl p-7 md:p-9"
-      style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
-        border: "1px solid rgba(255,255,255,0.06)",
-      }}
-      initial={{ opacity: 0, x: 30 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      {/* Top bar */}
-      <div style={{ height: 2, background: "linear-gradient(to right, #14B8A6, #EA580C, transparent)", borderRadius: 999, marginBottom: 28 }} />
-
-      <h3
+        ref={ref}
+        className="rounded-2xl p-7 md:p-9"
         style={{
-          fontFamily: "'Syne', sans-serif",
-          fontWeight: 800,
-          fontSize: 22,
-          color: "#1C1917",
-          marginBottom: 6,
+            background: "rgba(255,255,255,0.4)",           
+            border: "1px solid rgba(0,0,0,0.08)",          
+            boxShadow: "0 4px 24px rgba(0,0,0,0.04)",      
         }}
-      >
-        Send me a message
-      </h3>
-      <p style={{ color: "#A8A29E", fontSize: 14, marginBottom: 28, lineHeight: 1.6 }}>
-        I typically respond within 24 hours. Let's talk!
-      </p>
+        initial={{ opacity: 0, x: 30 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+        {/* Top bar */}
+        <div style={{ 
+            height: 2, 
+            background: "linear-gradient(to right, #0D9488, #DC2626, transparent)", 
+            borderRadius: 999, 
+            marginBottom: 28 
+        }} />
 
-      <AnimatePresence mode="wait">
-        {status === "success" ? (
-          <motion.div
-            key="success"
-            className="flex flex-col items-center justify-center gap-4 py-12"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div
-              className="flex items-center justify-center rounded-full"
-              style={{ width: 64, height: 64, background: "rgba(52,211,153,0.15)", border: "2px solid rgba(52,211,153,0.3)", fontSize: 28 }}
+        <h3
+            style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 800,
+            fontSize: 22,
+            color: "#1C1917",
+            marginBottom: 6,
+            }}
+        >
+            Send me a message
+        </h3>
+        <p style={{ color: "#78716C", fontSize: 14, marginBottom: 28, lineHeight: 1.6 }}>
+            I typically respond within 24 hours. Let's talk!
+        </p>
+
+        <AnimatePresence mode="wait">
+            {status === "success" ? (
+            <motion.div
+                key="success"
+                className="flex flex-col items-center justify-center gap-4 py-12"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
             >
-              ✓
-            </div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#34D399" }}>
-              Message Sent!
-            </div>
-            <div style={{ color: "#A8A29E", fontSize: 14, textAlign: "center" }}>
-              Thanks for reaching out. I'll get back to you soon.
-            </div>
-          </motion.div>
-        ) : (
-          <motion.form
-            key="form"
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {/* Name + Email row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label style={labelStyle}>Your Name</label>
-                <input
-                name="name"
-                value={form.name}
-                onChange={handleChange}
+                <div
+                className="flex items-center justify-center rounded-full"
+                style={{ 
+                    width: 64, 
+                    height: 64, 
+                    background: "rgba(5,150,105,0.12)", 
+                    border: "2px solid rgba(5,150,105,0.3)", 
+                    fontSize: 28 
+                }}
+                >
+                ✓
+                </div>
+                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#059669" }}>
+                Message Sent!
+                </div>
+                <div style={{ color: "#78716C", fontSize: 14, textAlign: "center" }}>
+                Thanks for reaching out. I'll get back to you soon.
+                </div>
+            </motion.div>
+            ) : (
+            <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                {/* Name + Email row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label style={labelStyle}>Your Name</label>
+                    <input
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
                 placeholder="Deepak Patidar"
-                style={{
-                ...inputStyle,
-                borderColor: errors.name ? "#F87171" : "rgba(255,255,255,0.08)",
-                }}
-                onFocus={(e) => {
-                if (!errors.name) e.target.style.borderColor = "rgba(20,184,166,0.4)";
-                e.target.style.background = "rgba(20,184,166,0.03)";
-                }}
-                onBlur={(e) => {
-                if (!errors.name) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.02)";
-                }}
-              />
-                {errors.name && (
-                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
-                    ⚠ {errors.name}
+                    style={{
+                        ...inputStyle,
+                        borderColor: errors.name ? "#EF4444" : "rgba(0,0,0,0.12)",
+                    }}
+                    onFocus={(e) => {
+                        if (!errors.name) e.target.style.borderColor = "rgba(13,148,136,0.4)";
+                        e.target.style.background = "rgba(13,148,136,0.04)";
+                    }}
+                    onBlur={(e) => {
+                        if (!errors.name) e.target.style.borderColor = "rgba(0,0,0,0.12)";
+                        e.target.style.background = "rgba(255,255,255,0.5)";
+                    }}
+                    />
+                    {errors.name && (
+                    <p style={{ color: "#EF4444", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                        ⚠ {errors.name}
                     </p>
-                )}
-              </div>
-              <div>
-                <label style={labelStyle}>Email Address</label>
-                <input
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
+                    )}
+                </div>
+                <div>
+                    <label style={labelStyle}>Email Address</label>
+                    <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
                   placeholder="you@company.com"
-                  required
-                  style={{
-                ...inputStyle,
-                borderColor: errors.email ? "#F87171" : "rgba(255,255,255,0.08)",
-                }}
-                onFocus={(e) => {
-                if (!errors.email) e.target.style.borderColor = "rgba(20,184,166,0.4)";
-                e.target.style.background = "rgba(20,184,166,0.03)";
-                }}
-                onBlur={(e) => {
-                if (!errors.email) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.02)";
-                }}
-              />
-                {errors.email && (
-                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
-                    ⚠ {errors.email}
+                    required
+                    style={{
+                        ...inputStyle,
+                        borderColor: errors.email ? "#EF4444" : "rgba(0,0,0,0.12)",
+                    }}
+                    onFocus={(e) => {
+                        if (!errors.email) e.target.style.borderColor = "rgba(13,148,136,0.4)";
+                        e.target.style.background = "rgba(13,148,136,0.04)";
+                    }}
+                    onBlur={(e) => {
+                        if (!errors.email) e.target.style.borderColor = "rgba(0,0,0,0.12)";
+                        e.target.style.background = "rgba(255,255,255,0.5)";
+                    }}
+                    />
+                    {errors.email && (
+                    <p style={{ color: "#EF4444", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                        ⚠ {errors.email}
                     </p>
-                )}
-              </div>
-            </div>
+                    )}
+                </div>
+                </div>
 
-            {/* Subject */}
-            <div>
-              <label style={labelStyle}>Subject</label>
-              <input
-                name="subject"
-                value={form.subject}
-                onChange={handleChange}
-                placeholder="Frontend role at your company"
-                style={{
-                ...inputStyle,
-                borderColor: errors.subject ? "#F87171" : "rgba(255,255,255,0.08)",
-                }}
-                onFocus={(e) => {
-                if (!errors.subject) e.target.style.borderColor = "rgba(20,184,166,0.4)";
-                e.target.style.background = "rgba(20,184,166,0.03)";
-                }}
-                onBlur={(e) => {
-                if (!errors.subject) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.02)";
-                }}
-              />
+                {/* Subject */}
+                <div>
+                <label style={labelStyle}>Subject</label>
+                <input
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    placeholder="Opportunity at your company"
+                    style={{
+                    ...inputStyle,
+                    borderColor: errors.subject ? "#EF4444" : "rgba(0,0,0,0.12)",
+                    }}
+                    onFocus={(e) => {
+                    if (!errors.subject) e.target.style.borderColor = "rgba(13,148,136,0.4)";
+                    e.target.style.background = "rgba(13,148,136,0.04)";
+                    }}
+                    onBlur={(e) => {
+                    if (!errors.subject) e.target.style.borderColor = "rgba(0,0,0,0.12)";
+                    e.target.style.background = "rgba(255,255,255,0.5)";
+                    }}
+                />
                 {errors.subject && (
-                    <p style={{ color: "#F87171", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                    <p style={{ color: "#EF4444", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
                     ⚠ {errors.subject}
                     </p>
                 )}
-            </div>
+                </div>
 
-            {/* Message */}
-            <div>
-              <label style={labelStyle}>Message</label>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
+                {/* Message */}
+                <div>
+                <label style={labelStyle}>Message</label>
+                <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
                 placeholder="Tell me about the opportunity, team, or just say hi..."
-                required
-                rows={5}
-                style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(20,184,166,0.4)";
-                  e.target.style.background = "rgba(20,184,166,0.03)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255,255,255,0.02)";
-                }}
-              />
-            </div>
+                    required
+                    rows={5}
+                    style={{ 
+                    ...inputStyle, 
+                    resize: "vertical", 
+                    minHeight: 120,
+                    borderColor: errors.message ? "#EF4444" : "rgba(0,0,0,0.12)",
+                    }}
+                    onFocus={(e) => {
+                    if (!errors.message) e.target.style.borderColor = "rgba(13,148,136,0.4)";
+                    e.target.style.background = "rgba(13,148,136,0.04)";
+                    }}
+                    onBlur={(e) => {
+                    if (!errors.message) e.target.style.borderColor = "rgba(0,0,0,0.12)";
+                    e.target.style.background = "rgba(255,255,255,0.5)";
+                    }}
+                />
+                {errors.message && (
+                    <p style={{ color: "#EF4444", fontSize: 12, marginTop: 5, fontFamily: "'DM Sans', sans-serif" }}>
+                    ⚠ {errors.message}
+                    </p>
+                )}
+                </div>
 
-            {/* Submit */}
-            <motion.button
-              type="submit"
-              disabled={status === "sending"}
-              style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 700,
-                fontSize: 13,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                padding: "15px 32px",
-                borderRadius: 12,
-                color: "#FAFAF9",
-                background: status === "sending"
-                  ? "rgba(20,184,166,0.5)"
-                  : "linear-gradient(135deg, #14B8A6, #6366F1)",
-                boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
-                border: "none",
-                cursor: status === "sending" ? "not-allowed" : "pointer",
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 10,
-              }}
-              whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 8px 40px rgba(20,184,166,0.45)" } : {}}
-              whileTap={status !== "sending" ? { scale: 0.98 } : {}}
-            >
-              {status === "sending" ? (
-                <>
-                  <motion.span
-                    style={{ display: "inline-block", width: 16, height: 16, border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#FAFAF9", borderRadius: "50%" }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                  />
-                  Sending...
-                </>
-              ) : (
-                "Send Message →"
-              )}
-            </motion.button>
-
-            {status === "error" && (
-            <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="rounded-xl p-4 flex flex-col gap-3"
+                {/* Submit */}
+                <motion.button
+                type="submit"
+                disabled={status === "sending"}
                 style={{
-                background: "rgba(248,113,113,0.06)",
-                border: "1px solid rgba(248,113,113,0.2)",
+                    fontFamily: "'Syne', sans-serif",
+                    fontWeight: 700,
+                    fontSize: 13,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    padding: "15px 32px",
+                    borderRadius: 12,
+                    color: "#FAFAF9",
+                    background: status === "sending"
+                    ? "rgba(13,148,136,0.5)"
+                    : "linear-gradient(135deg, #0D9488, #059669)",
+                    boxShadow: "0 4px 24px rgba(13,148,136,0.25)",
+                    border: "none",
+                    cursor: status === "sending" ? "not-allowed" : "pointer",
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 10,
                 }}
-            >
-                <p style={{ color: "#F87171", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
-                ⚠ {errorMsg}
-                </p>
-                <button
-                onClick={() => setStatus("idle")}
-                style={{
-                    background: "none",
-                    border: "1px solid rgba(248,113,113,0.3)",
-                    color: "#F87171",
-                    borderRadius: 8,
-                    padding: "8px 16px",
-                    fontSize: 12,
-                    cursor: "pointer",
-                    fontFamily: "'DM Sans', sans-serif",
-                    alignSelf: "flex-start",
-                }}
+                whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 8px 40px rgba(13,148,136,0.35)" } : {}}
+                whileTap={status !== "sending" ? { scale: 0.98 } : {}}
                 >
-                Try Again
-                </button>
-            </motion.div>
+                {status === "sending" ? (
+                    <>
+                    <motion.span
+                        style={{ 
+                        display: "inline-block", 
+                        width: 16, 
+                        height: 16, 
+                        border: "2px solid rgba(255,255,255,0.3)", 
+                        borderTopColor: "#FAFAF9", 
+                        borderRadius: "50%" 
+                        }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                    />
+                    Sending...
+                    </>
+                ) : (
+                    "Send Message →"
+                )}
+                </motion.button>
+
+                {status === "error" && (
+                <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="rounded-xl p-4 flex flex-col gap-3"
+                    style={{
+                    background: "rgba(239,68,68,0.08)",
+                    border: "1px solid rgba(239,68,68,0.2)",
+                    }}
+                >
+                    <p style={{ color: "#DC2626", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
+                    ⚠ {errorMsg}
+                    </p>
+                    <button
+                    onClick={() => setStatus("idle")}
+                    style={{
+                        background: "none",
+                        border: "1px solid rgba(239,68,68,0.3)",
+                        color: "#DC2626",
+                        borderRadius: 8,
+                        padding: "8px 16px",
+                        fontSize: 12,
+                        cursor: "pointer",
+                        fontFamily: "'DM Sans', sans-serif",
+                        alignSelf: "flex-start",
+                    }}
+                    >
+                    Try Again
+                    </button>
+                </motion.div>
+                )}
+            </motion.form>
             )}
-          </motion.form>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        </AnimatePresence>
+</motion.div>
   );
 }
 
@@ -502,13 +531,14 @@ export default function Contacts() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-contact {
-          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
+          background: linear-gradient(90deg, #0D9488 0%, #DC2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         input::placeholder, textarea::placeholder {
-          color: #374151;
+          color: #D6D3D1; 
+          opacity: 1;
         }
       `}</style>
 
@@ -617,7 +647,7 @@ export default function Contacts() {
                 >
                   <span style={{ fontSize: 18, flexShrink: 0 }}>⚡</span>
                   <p style={{ color: "#A8A29E", fontSize: 13, lineHeight: 1.7 }}>
-                    <span style={{ color: "#57534E", fontWeight: 600 }}>Quick responder</span> — I
+                    <span style={{ color: "#57534E", fontWeight: 600 }}>Quick responder</span> -I
                     typically reply within 24 hours on weekdays. For urgent
                     matters, reach out on LinkedIn or WhatsApp directly.
                   </p>

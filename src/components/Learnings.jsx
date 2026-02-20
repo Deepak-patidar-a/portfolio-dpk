@@ -195,7 +195,7 @@ function BlogCard({ post, index }) {
             fontSize: 10,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#D6D3D1",
+            color: "#78716C",
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
@@ -226,7 +226,7 @@ function BlogCard({ post, index }) {
         className="flex items-center justify-between pt-3"
         style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
       >
-        <span style={{ color: "#D6D3D1", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
+        <span style={{ color: "#78716C", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
           {post.readTime}
         </span>
         <a
@@ -235,14 +235,14 @@ function BlogCard({ post, index }) {
           rel="noopener noreferrer"
           style={{
             fontSize: 11,
-            color: "#D6D3D1",
+            color: "#78716C",
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: "0.08em",
             textDecoration: "none",
             transition: "0.2s",
           }}
           onMouseEnter={e => e.target.style.color = "#A8A29E"}
-          onMouseLeave={e => e.target.style.color = "#D6D3D1"}
+          onMouseLeave={e => e.target.style.color = "#78716C"}
         >
           Medium →
         </a>
@@ -265,7 +265,7 @@ export default function Learnings() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-growth {
-          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
+          background: linear-gradient(90deg, #0D9488 0%, #DC2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -277,7 +277,7 @@ export default function Learnings() {
         style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
-        {/* Background blobs — indigo toned */}
+        {/* Background blobs -indigo toned */}
         <div
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(20,184,166,0.04) 0%, transparent 70%)" }}
@@ -317,7 +317,7 @@ export default function Learnings() {
           {/* ── NamasteDev Courses ── */}
           <RevealOnScroll>
             <div className="flex items-center gap-4 mb-8">
-              <p style={{ color: "#D6D3D1", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
+              <p style={{ color: "#78716C", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
                 Structured Learning · NamasteDev
               </p>
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
@@ -340,7 +340,7 @@ export default function Learnings() {
             </div>
           </RevealOnScroll>
 
-          {/* Course cards — 3 columns */}
+          {/* Course cards -3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {COURSES.map((course, i) => (
               <CourseCard key={course.id} course={course} index={i} />
@@ -354,7 +354,7 @@ export default function Learnings() {
           {/* ── Blog Section ── */}
           <RevealOnScroll>
             <div className="flex items-center gap-4 mb-8">
-              <p style={{ color: "#D6D3D1", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
+              <p style={{ color: "#78716C", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
                 Writing · Coming to Medium
               </p>
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
@@ -384,7 +384,7 @@ export default function Learnings() {
             </p>
           </RevealOnScroll>
 
-          {/* Blog cards — 2x2 grid */}
+          {/* Blog cards -2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16">
             {BLOG_PLACEHOLDERS.map((post, i) => (
               <BlogCard key={post.id} post={post} index={i} />
@@ -405,7 +405,7 @@ export default function Learnings() {
                   Learning never stops 🧠
                 </div>
                 <div style={{ color: "#A8A29E", fontSize: 14, lineHeight: 1.7, maxWidth: 420 }}>
-                  Currently deepening expertise in Frontend System Design —
+                  Currently deepening expertise in Frontend System Design-
                   the architecture layer that separates good engineers
                   from great ones.
                 </div>

@@ -132,7 +132,7 @@ function ExperienceCard({ exp, index }) {
         </motion.div>
 
         {/* Vertical line */}
-        {index < EXPERIENCES.length - 1 && (
+        {index < EXPERIENCES.length  -1 && (
           <motion.div
             className="flex-1 w-px mt-3"
             style={{ background: `linear-gradient(to bottom, ${exp.color}30, rgba(255,255,255,0.04))` }}
@@ -487,7 +487,7 @@ function EducationCard() {
               {EDUCATION.degree}
             </h3>
             <div style={{ color: EDUCATION.color, fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600, marginTop: 4 }}>
-              {EDUCATION.field} — {EDUCATION.university}
+              {EDUCATION.field} -{EDUCATION.university}
             </div>
             <div style={{ color: "#A8A29E", fontSize: 12, fontFamily: "'DM Sans', sans-serif", marginTop: 4 }}>
               📍 {EDUCATION.location}
@@ -510,7 +510,7 @@ export default function Experience() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-exp {
-          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
+          background: linear-gradient(90deg, #0D9488 0%, #DC2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -520,7 +520,7 @@ export default function Experience() {
       <section
         id="work"
         style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
-        className="relative py-32 overflow-hidden"
+        className="relative py-20 overflow-hidden"
       >
         {/* Background blobs */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -549,7 +549,7 @@ export default function Experience() {
               <div className="mt-5 h-px w-32"
                 style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }} />
               <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
-                5+ years across enterprise SaaS and FinTech — building products
+                5+ years across enterprise SaaS and FinTech -building products
                 that serve real users at scale.
               </p>
             </div>
@@ -574,7 +574,7 @@ export default function Experience() {
 
           {/* ── Education ── */}
           <RevealOnScroll>
-            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
+            <p style={{ color: "#78716C", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
               Education
             </p>
           </RevealOnScroll>

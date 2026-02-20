@@ -58,7 +58,7 @@ export const COURSES = [
     color: "#14B8A6",
     icon: "⚛️",
     description:
-      "Deep dive into React internals — reconciliation, fiber architecture, custom hooks, performance patterns, and building production-grade component systems.",
+      "Deep dive into React internals -reconciliation, fiber architecture, custom hooks, performance patterns, and building production-grade component systems.",
     tags: ["React Internals", "Custom Hooks", "Performance", "Component Architecture", "State Management"],
     highlights: [
       "React Fiber & reconciliation algorithm",
@@ -77,7 +77,7 @@ export const COURSES = [
     color: "#EA580C",
     icon: "🟨",
     description:
-      "JavaScript the hard way — closures, prototypes, event loop, async/await internals, and the deeper mechanics that most developers never truly understand.",
+      "JavaScript the hard way -closures, prototypes, event loop, async/await internals, and the deeper mechanics that most developers never truly understand.",
     tags: ["Closures", "Event Loop", "Prototypes", "Async/Await", "Hoisting"],
     highlights: [
       "Execution context & call stack",
@@ -96,7 +96,7 @@ export const COURSES = [
     color: "#34D399",
     icon: "🏗️",
     description:
-      "Architecting frontend systems at scale — design patterns, component libraries, micro-frontends, API design, caching strategies, and performance at enterprise level.",
+      "Architecting frontend systems at scale -design patterns, component libraries, micro-frontends, API design, caching strategies, and performance at enterprise level.",
     tags: ["System Design", "Micro-frontends", "Design Patterns", "Scalability", "Architecture"],
     highlights: [
       "Scalable component architecture",
@@ -111,8 +111,8 @@ export const COURSES = [
 export const BLOG_PLACEHOLDERS = [
   {
     id: 1,
-    title: "Turning PO Data into PDFs — The Easy Fix I Discovered(Node.js + Puppeteer)",
-    excerpt: "Turning a Real-World Requirement into a Clean Solution — how I used Puppeteer to generate PDFs from PO data, the challenges I faced, and the practical lessons learned.",
+    title: "Turning PO Data into PDFs -The Easy Fix I Discovered(Node.js + Puppeteer)",
+    excerpt: "Turning a Real-World Requirement into a Clean Solution -how I used Puppeteer to generate PDFs from PO data, the challenges I faced, and the practical lessons learned.",
     tag: "React · Node · Puppeteer · PDF Generation",
     readTime: "8 min read",
     color: "#14B8A6",
@@ -121,7 +121,7 @@ export const BLOG_PLACEHOLDERS = [
   },
   {
     id: 2,
-    title: "Memoization in React — when it actually helps and when it hurts",
+    title: "Memoization in React -when it actually helps and when it hurts",
     excerpt: "Real performance wins and surprising anti-patterns I discovered while optimising high-traffic enterprise tables with 15+ attributes per row.",
     tag: "React · Performance",
     readTime: "6 min read",
@@ -130,8 +130,8 @@ export const BLOG_PLACEHOLDERS = [
   },
   {
     id: 3,
-    title: "Frontend RCA — how I debugged 40+ production issues and reached 99.9% uptime",
-    excerpt: "A practical guide to systematic root cause analysis in frontend systems — tools, mindset, and the process that actually works.",
+    title: "Frontend RCA -how I debugged 40+ production issues and reached 99.9% uptime",
+    excerpt: "A practical guide to systematic root cause analysis in frontend systems -tools, mindset, and the process that actually works.",
     tag: "Debugging · Production",
     readTime: "10 min read",
     color: "#34D399",
@@ -139,7 +139,7 @@ export const BLOG_PLACEHOLDERS = [
   },
   {
     id: 4,
-    title: "Building a design system for enterprise React apps — what nobody tells you",
+    title: "Building a design system for enterprise React apps -what nobody tells you",
     excerpt: "Lessons from creating reusable component libraries used across 20+ screens in a global supply chain SaaS product.",
     tag: "Design Systems · React",
     readTime: "7 min read",

@@ -45,7 +45,7 @@ function SkillRow({ skill, color, index, isVisible }) {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: 14,
-              color: skill.highlight ? "#F9FAFB" : "#D1D5DB",
+              color: skill.highlight ? "#1C1917" : "#57534E",
               fontWeight: skill.highlight ? 600 : 400,
             }}
           >
@@ -232,7 +232,7 @@ export default function Skills() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-skills {
-          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
+          background: linear-gradient(90deg, #0D9488 0%, #DC2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -294,14 +294,14 @@ export default function Skills() {
           </RevealOnScroll>
 
           {/* ── Skill Cards Grid ── */}
-          {/* Row 1 — 3 columns */}
+          {/* Row 1 -3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
             {SKILL_CATEGORIES.slice(0, 3).map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} delay={i * 0.1} />
             ))}
           </div>
 
-          {/* Row 2 — 3 columns */}
+          {/* Row 2 -3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {SKILL_CATEGORIES.slice(3).map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} delay={i * 0.1} />

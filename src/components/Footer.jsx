@@ -90,10 +90,10 @@ const Footer = () => {
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div style={{ color: "#D6D3D1", fontSize: 12 }}>
+          <div style={{ color: "#78716C", fontSize: 12 }}>
             © {new Date().getFullYear()} Deepak Patidar · Designed & Built with ❤️ using React + Tailwind + Framer Motion
           </div>
-          <div style={{ color: "#D6D3D1", fontSize: 12, display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ color: "#78716C", fontSize: 12, display: "flex", alignItems: "center", gap: 6 }}>
             <motion.span
               style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", display: "inline-block" }}
               animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}

@@ -80,7 +80,7 @@ function PhotoCard() {
         <div className="absolute bottom-0 right-0 w-[2px] h-full bg-yellow-400/70" />
       </div>
 
-      {/* Badge — experience */}
+      {/* Badge -experience */}
       <motion.div
         className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl border border-[#14B8A6]/30 backdrop-blur-sm"
         style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(20,184,166,0.12)" }}
@@ -92,7 +92,7 @@ function PhotoCard() {
         <div className="text-[11px] text-gray-400 tracking-widest uppercase mt-1 font-body">Years Exp.</div>
       </motion.div>
 
-      {/* Badge — stack */}
+      {/* Badge -stack */}
       <motion.div
         className="absolute -top-6 -right-6 px-5 py-4 rounded-2xl border border-yellow-400/20 backdrop-blur-sm"
         style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(234,88,12,0.06)" }}
@@ -235,7 +235,7 @@ export default function About() {
                 <p className="text-gray-600 text-xl leading-relaxed">
                   Hey, I'm{" "}
                   <span className="text-black font-semibold font-display">Deepak Patidar</span>{" "}
-                  - a Frontend Developer with{" "}
+                   -a Frontend Developer with{" "}
                   <span className="text-[#14B8A6] font-medium">5+ years of experience</span>{" "}
                   building fast, polished, and scalable web applications.
                 </p>
@@ -256,7 +256,7 @@ export default function About() {
                   I believe great frontend is equal parts{" "}
                   <span className="text-black font-medium">technical discipline</span> and{" "}
                   <span className="text-black font-medium">design sensibility</span>. I don't
-                  just make things work - I make them feel right too.
+                  just make things work  -I make them feel right too.
                 </p>
               </RevealOnScroll>
 
