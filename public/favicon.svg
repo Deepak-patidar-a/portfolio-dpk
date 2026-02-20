@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#1C1917"/>
+  
+  <!-- DP Text -->
+  <text 
+    x="32" 
+    y="42" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-size="28" 
+    font-weight="800" 
+    fill="#0D9488" 
+    text-anchor="middle"
+    letter-spacing="-1"
+  >DP</text>
+  
+  <!-- Accent line -->
+  <rect x="12" y="8" width="40" height="2" rx="1" fill="#0D9488" opacity="0.4"/>
+</svg>
