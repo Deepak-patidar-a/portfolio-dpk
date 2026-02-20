@@ -37,7 +37,7 @@ function PhotoCard() {
       <motion.div
         className="absolute -inset-3 rounded-3xl opacity-40"
         style={{
-          background: "linear-gradient(135deg, rgba(129,140,248,0.3), transparent 50%, rgba(255,184,0,0.2))",
+          background: "linear-gradient(135deg, rgba(20,184,166,0.3), transparent 50%, rgba(234,88,12,0.2))",
           filter: "blur(12px)",
         }}
         animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -47,16 +47,16 @@ function PhotoCard() {
       {/* Main photo area */}
       <div
         className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10"
-        style={{ background: "linear-gradient(145deg, #0D1B2A, #0A0A0F)" }}
+        style={{ background: "linear-gradient(145deg, #0D1B2A, #FAFAF9)" }}
       >
             <img src={deepak_patidar} alt="Deepak Patidar" className="w-full h-full object-cover" />
         
         {/* <div className="w-full h-full flex flex-col items-center justify-center gap-4">
           <div
-            className="w-24 h-24 rounded-full border-2 border-[#818CF8]/40 flex items-center justify-center"
-            style={{ background: "rgba(129,140,248,0.05)" }}
+            className="w-24 h-24 rounded-full border-2 border-[#14B8A6]/40 flex items-center justify-center"
+            style={{ background: "rgba(20,184,166,0.05)" }}
           >
-            <span className="font-display font-bold text-3xl text-[#818CF8]">DP</span>
+            <span className="font-display font-bold text-3xl text-[#14B8A6]">DP</span>
           </div>
           <span className="text-gray-600 text-sm font-body tracking-wider">Replace with your photo</span>
         </div> */}
@@ -64,7 +64,7 @@ function PhotoCard() {
         {/* Animated scan line */}
         <motion.div
           className="absolute left-0 right-0 h-px opacity-20"
-          style={{ background: "linear-gradient(90deg, transparent, #818CF8, transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, #14B8A6, transparent)" }}
           animate={{ top: ["0%", "100%", "0%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -72,8 +72,8 @@ function PhotoCard() {
 
       {/* Corner brackets */}
       <div className="absolute -top-1 -left-1 w-6 h-6">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-[#818CF8]" />
-        <div className="absolute top-0 left-0 w-[2px] h-full bg-[#818CF8]" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-[#14B8A6]" />
+        <div className="absolute top-0 left-0 w-[2px] h-full bg-[#14B8A6]" />
       </div>
       <div className="absolute -bottom-1 -right-1 w-6 h-6">
         <div className="absolute bottom-0 right-0 w-full h-[2px] bg-yellow-400/70" />
@@ -82,20 +82,20 @@ function PhotoCard() {
 
       {/* Badge — experience */}
       <motion.div
-        className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl border border-[#818CF8]/30 backdrop-blur-sm"
-        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(129,140,248,0.12)" }}
+        className="absolute -bottom-6 -right-6 px-5 py-4 rounded-2xl border border-[#14B8A6]/30 backdrop-blur-sm"
+        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(20,184,166,0.12)" }}
         initial={{ opacity: 0, scale: 0, rotate: -10 }}
         animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <div className="font-display font-extrabold text-3xl text-[#818CF8] leading-none">5+</div>
+        <div className="font-display font-extrabold text-3xl text-[#14B8A6] leading-none">5+</div>
         <div className="text-[11px] text-gray-400 tracking-widest uppercase mt-1 font-body">Years Exp.</div>
       </motion.div>
 
       {/* Badge — stack */}
       <motion.div
         className="absolute -top-6 -right-6 px-5 py-4 rounded-2xl border border-yellow-400/20 backdrop-blur-sm"
-        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(255,184,0,0.06)" }}
+        style={{ background: "rgba(13,27,42,0.95)", boxShadow: "0 0 25px rgba(234,88,12,0.06)" }}
         initial={{ opacity: 0, scale: 0, rotate: 10 }}
         animate={inView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.7 }}
@@ -113,18 +113,18 @@ function TraitCard({ icon, title, desc, delay, accent = "cyan" }) {
 
   const accentColor =
     accent === "cyan"
-      ? { border: "rgba(129,140,248,0.15)", glow: "rgba(129,140,248,0.06)", line: "#818CF8" }
-      : { border: "rgba(255,184,0,0.15)", glow: "rgba(255,184,0,0.06)", line: "#FFB800" };
+      ? { border: "rgba(20,184,166,0.15)", glow: "rgba(20,184,166,0.06)", line: "#14B8A6" }
+      : { border: "rgba(234,88,12,0.15)", glow: "rgba(234,88,12,0.06)", line: "#EA580C" };
 
   return (
     <motion.div
       ref={ref}
       className="group relative p-7 rounded-2xl border transition-all duration-300 cursor-default overflow-hidden"
-      style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
+      style={{ borderColor: "rgba(255,255,255,0.9)", background: "rgba(20,184,166,0.02)" }}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay }}
-      whileHover={{ y: -6, borderColor: accentColor.border, background: "rgba(255,255,255,0.04)" }}
+      whileHover={{ y: -6, borderColor: accentColor.border, background: "rgba(20,184,166,0.04)" }}
     >
       {/* Icon box */}
       <div
@@ -134,8 +134,8 @@ function TraitCard({ icon, title, desc, delay, accent = "cyan" }) {
         {icon}
       </div>
 
-      <h3 className="font-display font-bold text-white text-xl mb-3">{title}</h3>
-      <p className="font-body text-gray-400 text-sm leading-relaxed">{desc}</p>
+      <h3 className="font-display font-bold text-grey-500 text-xl mb-3">{title}</h3>
+      <p className="font-body text-gray-600 text-sm leading-relaxed">{desc}</p>
 
       {/* Hover bottom line */}
       <div
@@ -185,7 +185,7 @@ export default function About() {
     <>
       <style>{`
         .about-shimmer {
-          background: linear-gradient(90deg, #818CF8, #FFB800);
+          background: linear-gradient(90deg, #14B8A6, #EA580C);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -194,16 +194,16 @@ export default function About() {
 
       <section
         id="about"
-        className="font-body relative bg-[#0A0A0F] py-25 overflow-hidden"
+        className="font-body relative bg-[#FAFAF9] py-25 overflow-hidden"
       >
         {/* Background blobs */}
         <div
           className="absolute top-20 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.035) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.035) 0%, transparent 65%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(255,184,0,0.03) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(circle, rgba(234,88,12,0.03) 0%, transparent 65%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 md:px-10">
@@ -211,11 +211,11 @@ export default function About() {
           {/* Section header */}
           <RevealOnScroll>
             <div className="mb-20">
-              <h2 className="font-display font-extrabold text-5xl md:text-6xl text-white leading-tight">
+              <h2 className="font-display font-extrabold text-5xl md:text-6xl text-grey-600 leading-tight">
                 The person behind{" "}
                 <span className="about-shimmer">the code</span>
               </h2>
-              <div className="mt-5 h-px w-32 bg-gradient-to-r from-[#818CF8]/60 to-transparent" />
+              <div className="mt-5 h-px w-32 bg-gradient-to-r from-[#14B8A6]/60 to-transparent" />
             </div>
           </RevealOnScroll>
 
@@ -232,19 +232,19 @@ export default function About() {
             {/* Story */}
             <div className="flex flex-col gap-6">
               <RevealOnScroll delay={0.1}>
-                <p className="text-gray-200 text-xl leading-relaxed">
+                <p className="text-gray-600 text-xl leading-relaxed">
                   Hey, I'm{" "}
-                  <span className="text-white font-semibold font-display">Deepak Patidar</span>{" "}
+                  <span className="text-black font-semibold font-display">Deepak Patidar</span>{" "}
                   - a Frontend Developer with{" "}
-                  <span className="text-[#818CF8] font-medium">5+ years of experience</span>{" "}
+                  <span className="text-[#14B8A6] font-medium">5+ years of experience</span>{" "}
                   building fast, polished, and scalable web applications.
                 </p>
               </RevealOnScroll>
 
               <RevealOnScroll delay={0.2}>
-                <p className="text-gray-400 text-base leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed">
                   Currently at{" "}
-                  <span className="text-white font-medium">Blue Yonder</span>, a global supply
+                  <span className="text-black font-medium">Blue Yonder</span>, a global supply
                   chain SaaS company, where I architect complex UI systems used by enterprises
                   worldwide. My stack spans React, TypeScript, JavaScript, Redux, REST APIs, Tailwind CSS. also work with backend integrations, 
                   giving me an end-to-end perspective on how modern products are designed, built, and delivered.
@@ -252,19 +252,19 @@ export default function About() {
               </RevealOnScroll>
 
               <RevealOnScroll delay={0.3}>
-                <p className="text-gray-400 text-base leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed">
                   I believe great frontend is equal parts{" "}
-                  <span className="text-white font-medium">technical discipline</span> and{" "}
-                  <span className="text-white font-medium">design sensibility</span>. I don't
+                  <span className="text-black font-medium">technical discipline</span> and{" "}
+                  <span className="text-black font-medium">design sensibility</span>. I don't
                   just make things work - I make them feel right too.
                 </p>
               </RevealOnScroll>
 
               <RevealOnScroll delay={0.4}>
-                <p className="text-gray-400 text-base leading-relaxed">
+                <p className="text-gray-600 text-base leading-relaxed">
                   Outside of work I explore UI patterns, build side projects, and stay sharp on
                   emerging frontend tooling. I'm currently{" "}
-                  <span className="text-emerald-400 font-medium">open to new opportunities</span>{" "}
+                  <span className="text-[#14B8A6] font-medium">open to new opportunities</span>{" "}
                   across Bangalore, Hyderabad, Pune, and Noida.
                 </p>
               </RevealOnScroll>
@@ -274,12 +274,12 @@ export default function About() {
                 <div className="flex flex-wrap gap-4 pt-3">
                   <motion.a
                     href="#contact"
-                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-[#0A0A0F]"
+                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-[#FAFAF9]"
                     style={{
-                      background: "linear-gradient(135deg, #818CF8, #6366F1)",
-                      boxShadow: "0 0 24px rgba(129,140,248,0.25)",
+                      background: "linear-gradient(135deg, #14B8A6, #6366F1)",
+                      boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
                     }}
-                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(129,140,248,0.4)" }}
+                    whileHover={{ scale: 1.04, boxShadow: "0 8px 40px rgba(20,184,166,0.4)" }}
                     whileTap={{ scale: 0.97 }}
                   >
                     Hire Me
@@ -287,7 +287,7 @@ export default function About() {
                   <motion.a
                     href="/Deepak_Patidar_Resume.pdf"
                     download
-                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-white border border-white/10 bg-white/5 hover:border-[#818CF8]/30 hover:bg-white/10 transition-all duration-300"
+                    className="font-display font-semibold text-sm tracking-wider uppercase px-8 py-4 rounded-xl text-black border border-black/5 bg-black/2 hover:border-[#14B8A6]/30 hover:bg-white/10 transition-all duration-300"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -303,7 +303,7 @@ export default function About() {
 
           {/* Trait cards */}
           <RevealOnScroll>
-            <p className="text-lg tracking-[0.35em] uppercase text-gray-500 font-body mb-8 text-center">
+            <p className="text-lg tracking-[0.35em] uppercase text-gray-600 font-body mb-8 text-center">
               What defines my work
             </p>
           </RevealOnScroll>
@@ -325,14 +325,14 @@ export default function About() {
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
                     style={{
-                      background: "rgba(129,140,248,0.06)",
-                      border: "1px solid rgba(129,140,248,0.12)",
+                      background: "rgba(20,184,166,0.06)",
+                      border: "1px solid rgba(20,184,166,0.12)",
                     }}
                   >
                     {item.icon}
                   </div>
                   <div>
-                    <div className="font-display font-semibold text-white text-base">{item.title}</div>
+                    <div className="font-display font-semibold text-gray-600 text-base">{item.title}</div>
                     <div className="font-body text-gray-500 text-sm mt-1 leading-relaxed">{item.sub}</div>
                   </div>
                 </div>

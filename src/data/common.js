@@ -4,7 +4,7 @@ export const CONTACT_LINKS = [
     value: "deepakpatidar796@gmail.com",
     href: "mailto:deepakpatidar796@gmail.com",
     icon: "✉️",
-    color: "#818CF8",
+    color: "#14B8A6",
     copyable: true,
   },
   {
@@ -35,8 +35,8 @@ export const CONTACT_LINKS = [
 
 export const AVAILABILITY = [
   { label: "Status", value: "Open to Opportunities", color: "#34D399" },
-  { label: "Notice Period", value: "Immediate – 60 days", color: "#818CF8" },
-  { label: "Preferred Locations", value: "Bangalore · Hyderabad · Pune · Noida", color: "#FFB800" },
+  { label: "Notice Period", value: "Immediate – 60 days", color: "#14B8A6" },
+  { label: "Preferred Locations", value: "Bangalore · Hyderabad · Pune · Noida", color: "#EA580C" },
   { label: "Work Type", value: "Full-time · On-site or Hybrid", color: "#A78BFA" },
 ];
 
@@ -55,7 +55,7 @@ export const COURSES = [
     platform: "NamasteDev",
     instructor: "Akshay Saini",
     status: "Completed",
-    color: "#818CF8",
+    color: "#14B8A6",
     icon: "⚛️",
     description:
       "Deep dive into React internals — reconciliation, fiber architecture, custom hooks, performance patterns, and building production-grade component systems.",
@@ -74,7 +74,7 @@ export const COURSES = [
     platform: "NamasteDev",
     instructor: "Akshay Saini",
     status: "Completed",
-    color: "#FFB800",
+    color: "#EA580C",
     icon: "🟨",
     description:
       "JavaScript the hard way — closures, prototypes, event loop, async/await internals, and the deeper mechanics that most developers never truly understand.",
@@ -89,7 +89,7 @@ export const COURSES = [
   },
   {
     id: "namaste-fsd",
-    title: "Namaste Frontend System Design",
+    title: "Frontend System Design",
     platform: "NamasteDev",
     instructor: "Akshay Saini",
     status: "In Progress",
@@ -111,12 +111,13 @@ export const COURSES = [
 export const BLOG_PLACEHOLDERS = [
   {
     id: 1,
-    title: "How I integrated 60+ REST APIs in a React enterprise app without losing my mind",
-    excerpt: "Lessons from building the Competitive Pricing Module at Blue Yonder — API contracts, io-ts validation, and error handling at scale.",
-    tag: "React · Architecture",
+    title: "Turning PO Data into PDFs — The Easy Fix I Discovered(Node.js + Puppeteer)",
+    excerpt: "Turning a Real-World Requirement into a Clean Solution — how I used Puppeteer to generate PDFs from PO data, the challenges I faced, and the practical lessons learned.",
+    tag: "React · Node · Puppeteer · PDF Generation",
     readTime: "8 min read",
-    color: "#818CF8",
-    status: "coming-soon",
+    color: "#14B8A6",
+    status: "Available on Medium",
+    url:"https://medium.com/@deepakpatidar796/turning-po-data-into-pdfs-the-easy-fix-i-discovered-node-js-puppeteer-899a90a50807"
   },
   {
     id: 2,
@@ -124,7 +125,7 @@ export const BLOG_PLACEHOLDERS = [
     excerpt: "Real performance wins and surprising anti-patterns I discovered while optimising high-traffic enterprise tables with 15+ attributes per row.",
     tag: "React · Performance",
     readTime: "6 min read",
-    color: "#FFB800",
+    color: "#EA580C",
     status: "coming-soon",
   },
   {

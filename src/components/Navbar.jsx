@@ -70,17 +70,16 @@ export default function Navbar() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
-        .nav-link-active { color: #818CF8 !important; }
+        .nav-link-active { color: #14B8A6 !important; }
       `}</style>
 
       {/* ── Main Navbar ── */}
       <motion.header
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: scrolled
-            ? "rgba(10,10,15,0.92)"
-            : "rgba(10,10,15,0.0)",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
+          background: scrolled ?
+            "rgba(250,250,249,0.92)" : "rgba(250,250,249,0.0)",
+          backdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
           borderBottom: scrolled
             ? "1px solid rgba(255,255,255,0.06)"
             : "1px solid transparent",
@@ -99,16 +98,16 @@ export default function Navbar() {
               fontFamily: "'Syne', sans-serif",
               fontWeight: 800,
               fontSize: 22,
-              color: "#fff",
+              color: "#1C1917",
               textDecoration: "none",
               letterSpacing: "-0.02em",
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            <span style={{ color: "#818CF8" }}>&lt;</span>
+            <span style={{ color: "#14B8A6" }}>&lt;</span>
             DP
-            <span style={{ color: "#818CF8" }}>/&gt;</span>
+            <span style={{ color: "#14B8A6" }}>/&gt;</span>
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -123,14 +122,14 @@ export default function Navbar() {
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: 13,
                     fontWeight: isActive ? 600 : 400,
-                    color: isActive ? "#818CF8" : "#9CA3AF",
+                    color: isActive ? "#14B8A6" : "#78716C",
                     textDecoration: "none",
                     letterSpacing: "0.06em",
                     position: "relative",
                     paddingBottom: 2,
                     transition: "color 0.2s",
                   }}
-                  whileHover={{ color: "#818CF8", y: -1 }}
+                  whileHover={{ color: "#14B8A6", y: -1 }}
                 >
                   {item}
                   <motion.span
@@ -141,8 +140,8 @@ export default function Navbar() {
                       right: 0,
                       height: 1.5,
                       borderRadius: 999,
-                      background: "#818CF8",
-                      boxShadow: "0 0 6px rgba(129,140,248,0.6)",
+                      background: "#14B8A6",
+                      boxShadow: "0 0 6px rgba(20,184,166,0.6)",
                     }}
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: isActive ? 1 : 0 }}
@@ -163,8 +162,8 @@ export default function Navbar() {
               fontSize: 11,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#818CF8",
-              border: "1px solid rgba(129,140,248,0.3)",
+              color: "#14B8A6",
+              border: "1px solid rgba(20,184,166,0.3)",
               borderRadius: 8,
               padding: "9px 18px",
               textDecoration: "none",
@@ -172,8 +171,8 @@ export default function Navbar() {
             }}
             whileHover={{
               scale: 1.04,
-              backgroundColor: "rgba(129,140,248,0.08)",
-              borderColor: "rgba(129,140,248,0.6)",
+              backgroundColor: "rgba(20,184,166,0.08)",
+              borderColor: "rgba(20,184,166,0.6)",
             }}
             whileTap={{ scale: 0.97 }}
           >
@@ -194,17 +193,17 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <motion.span
-              style={{ display: "block", width: 18, height: 1.5, background: "#fff", borderRadius: 999, transformOrigin: "center" }}
+              style={{ display: "block", width: 18, height: 1.5, background: "#1C1917", borderRadius: 999, transformOrigin: "center" }}
               animate={mobileOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.25 }}
             />
             <motion.span
-              style={{ display: "block", width: 18, height: 1.5, background: "#fff", borderRadius: 999 }}
+              style={{ display: "block", width: 18, height: 1.5, background: "#1C1917", borderRadius: 999 }}
               animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.2 }}
             />
             <motion.span
-              style={{ display: "block", width: 18, height: 1.5, background: "#fff", borderRadius: 999, transformOrigin: "center" }}
+              style={{ display: "block", width: 18, height: 1.5, background: "#1C1917", borderRadius: 999, transformOrigin: "center" }}
               animate={mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.25 }}
             />
@@ -219,7 +218,7 @@ export default function Navbar() {
             {/* Backdrop */}
             <motion.div
               className="fixed inset-0 z-40 md:hidden"
-              style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
+              style={{ background: "rgba(255,255,255,0.6)", backdropFilter: "blur(16px) saturate(180%)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -242,17 +241,17 @@ export default function Navbar() {
               {/* Panel header */}
               <div
                 className="flex items-center justify-between px-6 py-5"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
               >
-                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff" }}>
-                  <span style={{ color: "#818CF8" }}>&lt;</span>DP<span style={{ color: "#818CF8" }}>/&gt;</span>
+                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#1C1917" }}>
+                  <span style={{ color: "#14B8A6" }}>&lt;</span>DP<span style={{ color: "#14B8A6" }}>/&gt;</span>
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
                   style={{
-                    background: "rgba(255,255,255,0.05)",
+                    background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.1)",
-                    color: "#9CA3AF",
+                    color: "#78716C",
                     borderRadius: 8,
                     width: 36,
                     height: 36,
@@ -281,22 +280,22 @@ export default function Navbar() {
                         fontFamily: "'Syne', sans-serif",
                         fontWeight: 700,
                         fontSize: 18,
-                        color: isActive ? "#818CF8" : "#9CA3AF",
+                        color: isActive ? "#14B8A6" : "#78716C",
                         textDecoration: "none",
-                        background: isActive ? "rgba(129,140,248,0.06)" : "transparent",
-                        border: `1px solid ${isActive ? "rgba(129,140,248,0.15)" : "transparent"}`,
+                        background: isActive ? "rgba(20,184,166,0.06)" : "transparent",
+                        border: `1px solid ${isActive ? "rgba(20,184,166,0.15)" : "transparent"}`,
                         transition: "all 0.2s",
                       }}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.06 }}
                       whileHover={{
-                        color: "#818CF8",
-                        background: "rgba(129,140,248,0.05)",
+                        color: "#14B8A6",
+                        background: "rgba(20,184,166,0.05)",
                         x: 4,
                       }}
                     >
-                      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#818CF8", opacity: 0.5 }}>
+                      <span style={{ fontSize: 11, letterSpacing: "0.2em", color: "#14B8A6", opacity: 0.5 }}>
                         0{i + 1}
                       </span>
                       {item}
@@ -317,9 +316,9 @@ export default function Navbar() {
                     fontSize: 13,
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    color: "#0A0A0F",
-                    background: "linear-gradient(135deg, #818CF8, #6366F1)",
-                    boxShadow: "0 0 24px rgba(129,140,248,0.25)",
+                    color: "#FAFAF9",
+                    background: "linear-gradient(135deg, #14B8A6, #6366F1)",
+                    boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
                     textDecoration: "none",
                   }}
                   whileHover={{ scale: 1.03 }}
@@ -347,7 +346,7 @@ export default function Navbar() {
                         fontSize: 20,
                         textDecoration: "none",
                       }}
-                      whileHover={{ scale: 1.1, borderColor: "rgba(129,140,248,0.3)" }}
+                      whileHover={{ scale: 1.1, borderColor: "rgba(20,184,166,0.3)" }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {s.icon}

@@ -2,8 +2,8 @@ export const SKILL_CATEGORIES = [
   {
     id: "core",
     label: "Frontend Core",
-    color: "#818CF8",
-    glow: "rgba(129,140,248,0.15)",
+    color: "#14B8A6",
+    glow: "rgba(20,184,166,0.15)",
     skills: [
       { name: "React.js", level: 95, icon: "⚛️", highlight: true },
       { name: "JavaScript ES6+", level: 95, icon: "🟨", highlight: true },
@@ -16,8 +16,8 @@ export const SKILL_CATEGORIES = [
   {
     id: "libs",
     label: "Libraries & UI",
-    color: "#FFB800",
-    glow: "rgba(255,184,0,0.12)",
+    color: "#EA580C",
+    glow: "rgba(234,88,12,0.12)",
     skills: [
       { name: "Redux", level: 88, icon: "🗃️", highlight: true },
       { name: "React Query", level: 85, icon: "🔁", highlight: true },

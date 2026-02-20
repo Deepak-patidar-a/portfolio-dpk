@@ -46,8 +46,8 @@ function ContactCard({ item, index }) {
       onClick={item.copyable ? handleCopy : undefined}
       className="group relative flex items-center gap-5 p-5 rounded-2xl"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-        border: `1px solid rgba(255,255,255,0.07)`,
+        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+        border: `1px solid rgba(255,255,255,0.06)`,
         textDecoration: "none",
         cursor: item.copyable ? "copy" : "pointer",
       }}
@@ -80,7 +80,7 @@ function ContactCard({ item, index }) {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: 11,
-            color: "#6B7280",
+            color: "#A8A29E",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             marginBottom: 3,
@@ -93,7 +93,7 @@ function ContactCard({ item, index }) {
             fontFamily: "'Syne', sans-serif",
             fontWeight: 600,
             fontSize: 14,
-            color: "#E5E7EB",
+            color: "#57534E",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
@@ -225,11 +225,11 @@ function ContactForm() {
 
   const inputStyle = {
     width: "100%",
-    background: "rgba(255,255,255,0.03)",
+    background: "rgba(255,255,255,0.02)",
     border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: 12,
     padding: "14px 18px",
-    color: "#E5E7EB",
+    color: "#57534E",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: 14,
     outline: "none",
@@ -241,7 +241,7 @@ function ContactForm() {
     display: "block",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: 11,
-    color: "#6B7280",
+    color: "#A8A29E",
     letterSpacing: "0.15em",
     textTransform: "uppercase",
     marginBottom: 8,
@@ -252,28 +252,28 @@ function ContactForm() {
       ref={ref}
       className="rounded-2xl p-7 md:p-9"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+        border: "1px solid rgba(255,255,255,0.06)",
       }}
       initial={{ opacity: 0, x: 30 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Top bar */}
-      <div style={{ height: 2, background: "linear-gradient(to right, #818CF8, #FFB800, transparent)", borderRadius: 999, marginBottom: 28 }} />
+      <div style={{ height: 2, background: "linear-gradient(to right, #14B8A6, #EA580C, transparent)", borderRadius: 999, marginBottom: 28 }} />
 
       <h3
         style={{
           fontFamily: "'Syne', sans-serif",
           fontWeight: 800,
           fontSize: 22,
-          color: "#fff",
+          color: "#1C1917",
           marginBottom: 6,
         }}
       >
         Send me a message
       </h3>
-      <p style={{ color: "#6B7280", fontSize: 14, marginBottom: 28, lineHeight: 1.6 }}>
+      <p style={{ color: "#A8A29E", fontSize: 14, marginBottom: 28, lineHeight: 1.6 }}>
         I typically respond within 24 hours. Let's talk!
       </p>
 
@@ -295,7 +295,7 @@ function ContactForm() {
             <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#34D399" }}>
               Message Sent!
             </div>
-            <div style={{ color: "#6B7280", fontSize: 14, textAlign: "center" }}>
+            <div style={{ color: "#A8A29E", fontSize: 14, textAlign: "center" }}>
               Thanks for reaching out. I'll get back to you soon.
             </div>
           </motion.div>
@@ -322,12 +322,12 @@ function ContactForm() {
                 borderColor: errors.name ? "#F87171" : "rgba(255,255,255,0.08)",
                 }}
                 onFocus={(e) => {
-                if (!errors.name) e.target.style.borderColor = "rgba(129,140,248,0.4)";
-                e.target.style.background = "rgba(129,140,248,0.03)";
+                if (!errors.name) e.target.style.borderColor = "rgba(20,184,166,0.4)";
+                e.target.style.background = "rgba(20,184,166,0.03)";
                 }}
                 onBlur={(e) => {
                 if (!errors.name) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.03)";
+                e.target.style.background = "rgba(255,255,255,0.02)";
                 }}
               />
                 {errors.name && (
@@ -350,12 +350,12 @@ function ContactForm() {
                 borderColor: errors.email ? "#F87171" : "rgba(255,255,255,0.08)",
                 }}
                 onFocus={(e) => {
-                if (!errors.email) e.target.style.borderColor = "rgba(129,140,248,0.4)";
-                e.target.style.background = "rgba(129,140,248,0.03)";
+                if (!errors.email) e.target.style.borderColor = "rgba(20,184,166,0.4)";
+                e.target.style.background = "rgba(20,184,166,0.03)";
                 }}
                 onBlur={(e) => {
                 if (!errors.email) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.03)";
+                e.target.style.background = "rgba(255,255,255,0.02)";
                 }}
               />
                 {errors.email && (
@@ -379,12 +379,12 @@ function ContactForm() {
                 borderColor: errors.subject ? "#F87171" : "rgba(255,255,255,0.08)",
                 }}
                 onFocus={(e) => {
-                if (!errors.subject) e.target.style.borderColor = "rgba(129,140,248,0.4)";
-                e.target.style.background = "rgba(129,140,248,0.03)";
+                if (!errors.subject) e.target.style.borderColor = "rgba(20,184,166,0.4)";
+                e.target.style.background = "rgba(20,184,166,0.03)";
                 }}
                 onBlur={(e) => {
                 if (!errors.subject) e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                e.target.style.background = "rgba(255,255,255,0.03)";
+                e.target.style.background = "rgba(255,255,255,0.02)";
                 }}
               />
                 {errors.subject && (
@@ -406,12 +406,12 @@ function ContactForm() {
                 rows={5}
                 style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(129,140,248,0.4)";
-                  e.target.style.background = "rgba(129,140,248,0.03)";
+                  e.target.style.borderColor = "rgba(20,184,166,0.4)";
+                  e.target.style.background = "rgba(20,184,166,0.03)";
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255,255,255,0.03)";
+                  e.target.style.background = "rgba(255,255,255,0.02)";
                 }}
               />
             </div>
@@ -428,11 +428,11 @@ function ContactForm() {
                 textTransform: "uppercase",
                 padding: "15px 32px",
                 borderRadius: 12,
-                color: "#0A0A0F",
+                color: "#FAFAF9",
                 background: status === "sending"
-                  ? "rgba(129,140,248,0.5)"
-                  : "linear-gradient(135deg, #818CF8, #6366F1)",
-                boxShadow: "0 0 24px rgba(129,140,248,0.25)",
+                  ? "rgba(20,184,166,0.5)"
+                  : "linear-gradient(135deg, #14B8A6, #6366F1)",
+                boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
                 border: "none",
                 cursor: status === "sending" ? "not-allowed" : "pointer",
                 width: "100%",
@@ -441,13 +441,13 @@ function ContactForm() {
                 justifyContent: "center",
                 gap: 10,
               }}
-              whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 0 40px rgba(129,140,248,0.45)" } : {}}
+              whileHover={status !== "sending" ? { scale: 1.02, boxShadow: "0 8px 40px rgba(20,184,166,0.45)" } : {}}
               whileTap={status !== "sending" ? { scale: 0.98 } : {}}
             >
               {status === "sending" ? (
                 <>
                   <motion.span
-                    style={{ display: "inline-block", width: 16, height: 16, border: "2px solid rgba(0,0,0,0.3)", borderTopColor: "#0A0A0F", borderRadius: "50%" }}
+                    style={{ display: "inline-block", width: 16, height: 16, border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#FAFAF9", borderRadius: "50%" }}
                     animate={{ rotate: 360 }}
                     transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                   />
@@ -502,7 +502,7 @@ export default function Contacts() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-contact {
-          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -514,16 +514,16 @@ export default function Contacts() {
 
       <section
         id="contact"
-        style={{ background: "#0A0A0F", fontFamily: "'DM Sans', sans-serif" }}
+        style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, rgba(129,140,248,0.04) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(20,184,166,0.04) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(255,184,0,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(234,88,12,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
@@ -536,7 +536,7 @@ export default function Contacts() {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(2.2rem, 6vw, 4rem)",
-                  color: "#fff",
+                  color: "#1C1917",
                   marginTop: 12,
                   lineHeight: 1.05,
                 }}
@@ -546,7 +546,7 @@ export default function Contacts() {
               </h2>
               <p
                 style={{
-                  color: "#6B7280",
+                  color: "#A8A29E",
                   fontSize: 16,
                   lineHeight: 1.75,
                   maxWidth: 480,
@@ -570,7 +570,7 @@ export default function Contacts() {
                 <div
                   className="rounded-2xl p-6"
                   style={{
-                    background: "linear-gradient(135deg, rgba(52,211,153,0.06), rgba(129,140,248,0.03))",
+                    background: "linear-gradient(135deg, rgba(52,211,153,0.06), rgba(20,184,166,0.03))",
                     border: "1px solid rgba(52,211,153,0.15)",
                   }}
                 >
@@ -587,7 +587,7 @@ export default function Contacts() {
                   <div className="flex flex-col gap-4">
                     {AVAILABILITY.map((item) => (
                       <div key={item.label} className="flex items-start justify-between gap-4">
-                        <span style={{ color: "#6B7280", fontSize: 13, fontFamily: "'DM Sans', sans-serif", flexShrink: 0 }}>
+                        <span style={{ color: "#A8A29E", fontSize: 13, fontFamily: "'DM Sans', sans-serif", flexShrink: 0 }}>
                           {item.label}
                         </span>
                         <span style={{ color: item.color, fontSize: 13, fontFamily: "'DM Sans', sans-serif", fontWeight: 600, textAlign: "right" }}>
@@ -612,12 +612,12 @@ export default function Contacts() {
                   className="rounded-xl p-4 flex items-start gap-3"
                   style={{
                     background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.04)",
                   }}
                 >
                   <span style={{ fontSize: 18, flexShrink: 0 }}>⚡</span>
-                  <p style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.7 }}>
-                    <span style={{ color: "#E5E7EB", fontWeight: 600 }}>Quick responder</span> — I
+                  <p style={{ color: "#A8A29E", fontSize: 13, lineHeight: 1.7 }}>
+                    <span style={{ color: "#57534E", fontWeight: 600 }}>Quick responder</span> — I
                     typically reply within 24 hours on weekdays. For urgent
                     matters, reach out on LinkedIn or WhatsApp directly.
                   </p>
@@ -630,7 +630,7 @@ export default function Contacts() {
 
           <div
             className="w-full h-px"
-            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent)" }}
+            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent)" }}
           />
         </div>
       </section>

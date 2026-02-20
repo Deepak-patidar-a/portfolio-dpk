@@ -10,7 +10,7 @@ import Learnings from './components/Learnings'
 
 function App() {
   return (
-    <div className="bg-[#0A0A0F]">
+    <div className="bg-[#FAFAF9]">
       <Navbar/>
       <Hero />
       <About />

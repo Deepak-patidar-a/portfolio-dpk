@@ -30,7 +30,7 @@ function CourseCard({ course, index }) {
       ref={ref}
       className="relative rounded-2xl overflow-hidden flex flex-col"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
+        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
         border: `1px solid ${course.color}20`,
       }}
       initial={{ opacity: 0, y: 40 }}
@@ -59,10 +59,10 @@ function CourseCard({ course, index }) {
               {course.icon}
             </div>
             <div>
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 17, color: "#fff", lineHeight: 1.2 }}>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 17, color: "#1C1917", lineHeight: 1.2 }}>
                 {course.title}
               </h3>
-              <div style={{ color: "#6B7280", fontSize: 12, marginTop: 3, fontFamily: "'DM Sans', sans-serif" }}>
+              <div style={{ color: "#A8A29E", fontSize: 12, marginTop: 3, fontFamily: "'DM Sans', sans-serif" }}>
                 by {course.instructor} · {course.platform}
               </div>
             </div>
@@ -100,7 +100,7 @@ function CourseCard({ course, index }) {
         </div>
 
         {/* Description */}
-        <p style={{ color: "#9CA3AF", fontSize: 14, lineHeight: 1.75, fontFamily: "'DM Sans', sans-serif" }}>
+        <p style={{ color: "#78716C", fontSize: 14, lineHeight: 1.75, fontFamily: "'DM Sans', sans-serif" }}>
           {course.description}
         </p>
 
@@ -124,7 +124,7 @@ function CourseCard({ course, index }) {
                   boxShadow: `0 0 6px ${course.color}60`,
                 }}
               />
-              <span style={{ color: "#6B7280", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
+              <span style={{ color: "#A8A29E", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
                 {h}
               </span>
             </motion.div>
@@ -132,7 +132,7 @@ function CourseCard({ course, index }) {
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-auto pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div className="flex flex-wrap gap-2 mt-auto pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
           {course.tags.map((tag) => (
             <span
               key={tag}
@@ -165,7 +165,7 @@ function BlogCard({ post, index }) {
       className="group relative rounded-2xl p-6 flex flex-col gap-4"
       style={{
         background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-        border: "1px solid rgba(255,255,255,0.07)",
+        border: "1px solid rgba(255,255,255,0.06)",
         cursor: "default",
       }}
       initial={{ opacity: 0, y: 30 }}
@@ -195,11 +195,11 @@ function BlogCard({ post, index }) {
             fontSize: 10,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#4B5563",
+            color: "#D6D3D1",
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
-          ✍ Coming Soon
+          ✍ {post.status}
         </span>
       </div>
 
@@ -209,7 +209,7 @@ function BlogCard({ post, index }) {
           fontFamily: "'Syne', sans-serif",
           fontWeight: 700,
           fontSize: 15,
-          color: "#E5E7EB",
+          color: "#57534E",
           lineHeight: 1.5,
         }}
       >
@@ -217,28 +217,35 @@ function BlogCard({ post, index }) {
       </h4>
 
       {/* Excerpt */}
-      <p style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
+      <p style={{ color: "#A8A29E", fontSize: 13, lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
         {post.excerpt}
       </p>
 
       {/* Footer */}
       <div
         className="flex items-center justify-between pt-3"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
       >
-        <span style={{ color: "#4B5563", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
+        <span style={{ color: "#D6D3D1", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
           {post.readTime}
         </span>
-        <span
+        <a
+          href={post.status === "Available on Medium" ? post.url : "#"}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             fontSize: 11,
-            color: "#4B5563",
+            color: "#D6D3D1",
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: "0.08em",
+            textDecoration: "none",
+            transition: "0.2s",
           }}
+          onMouseEnter={e => e.target.style.color = "#A8A29E"}
+          onMouseLeave={e => e.target.style.color = "#D6D3D1"}
         >
           Medium →
-        </span>
+        </a>
       </div>
 
       {/* Left accent on hover */}
@@ -258,7 +265,7 @@ export default function Learnings() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-growth {
-          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -267,17 +274,17 @@ export default function Learnings() {
 
       <section
         id="learnings"
-        style={{ background: "#0A0A0F", fontFamily: "'DM Sans', sans-serif" }}
+        style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
         {/* Background blobs — indigo toned */}
         <div
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.04) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.04) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(255,184,0,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(234,88,12,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
@@ -290,7 +297,7 @@ export default function Learnings() {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-                  color: "#fff",
+                  color: "#1C1917",
                   marginTop: 12,
                   lineHeight: 1.1,
                 }}
@@ -299,8 +306,8 @@ export default function Learnings() {
                 <span className="shimmer-growth">learning</span>
               </h2>
               <div className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }} />
-              <p style={{ color: "#6B7280", fontSize: 16, lineHeight: 1.75, maxWidth: 540, marginTop: 16 }}>
+                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }} />
+              <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 540, marginTop: 16 }}>
                 5+ years in industry and still deepening the fundamentals.
                 Great engineers never stop going back to first principles.
               </p>
@@ -310,7 +317,7 @@ export default function Learnings() {
           {/* ── NamasteDev Courses ── */}
           <RevealOnScroll>
             <div className="flex items-center gap-4 mb-8">
-              <p style={{ color: "#4B5563", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
+              <p style={{ color: "#D6D3D1", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
                 Structured Learning · NamasteDev
               </p>
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
@@ -320,7 +327,7 @@ export default function Learnings() {
                 rel="noopener noreferrer"
                 style={{
                   fontSize: 11,
-                  color: "#818CF8",
+                  color: "#14B8A6",
                   fontFamily: "'DM Sans', sans-serif",
                   letterSpacing: "0.08em",
                   textDecoration: "none",
@@ -347,16 +354,16 @@ export default function Learnings() {
           {/* ── Blog Section ── */}
           <RevealOnScroll>
             <div className="flex items-center gap-4 mb-8">
-              <p style={{ color: "#4B5563", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
+              <p style={{ color: "#D6D3D1", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
                 Writing · Coming to Medium
               </p>
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
               <span
                 style={{
                   fontSize: 10,
-                  color: "#FFB800",
-                  background: "rgba(255,184,0,0.1)",
-                  border: "1px solid rgba(255,184,0,0.2)",
+                  color: "#EA580C",
+                  background: "rgba(234,88,12,0.1)",
+                  border: "1px solid rgba(234,88,12,0.2)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "'DM Sans', sans-serif",
@@ -370,8 +377,8 @@ export default function Learnings() {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#6B7280", fontSize: 15, lineHeight: 1.75, maxWidth: 560, marginBottom: 32 }}>
-              Real war stories from enterprise frontend development —
+            <p style={{ color: "#A8A29E", fontSize: 15, lineHeight: 1.75, maxWidth: 560, marginBottom: 32 }}>
+              Real war stories from enterprise frontend development -
               not tutorials, but lessons learned the hard way building
               production systems at scale.
             </p>
@@ -389,15 +396,15 @@ export default function Learnings() {
             <div
               className="rounded-2xl p-7 md:p-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
               style={{
-                background: "linear-gradient(135deg, rgba(129,140,248,0.06), rgba(255,184,0,0.03))",
-                border: "1px solid rgba(129,140,248,0.15)",
+                background: "linear-gradient(135deg, rgba(20,184,166,0.06), rgba(234,88,12,0.03))",
+                border: "1px solid rgba(20,184,166,0.15)",
               }}
             >
               <div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff", marginBottom: 6 }}>
+                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#1C1917", marginBottom: 6 }}>
                   Learning never stops 🧠
                 </div>
-                <div style={{ color: "#6B7280", fontSize: 14, lineHeight: 1.7, maxWidth: 420 }}>
+                <div style={{ color: "#A8A29E", fontSize: 14, lineHeight: 1.7, maxWidth: 420 }}>
                   Currently deepening expertise in Frontend System Design —
                   the architecture layer that separates good engineers
                   from great ones.
@@ -416,20 +423,20 @@ export default function Learnings() {
                     textTransform: "uppercase",
                     padding: "12px 24px",
                     borderRadius: 10,
-                    color: "#0A0A0F",
-                    background: "linear-gradient(135deg, #818CF8, #6366F1)",
-                    boxShadow: "0 0 24px rgba(129,140,248,0.25)",
+                    color: "#FAFAF9",
+                    background: "linear-gradient(135deg, #14B8A6, #6366F1)",
+                    boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                     display: "inline-block",
                   }}
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(129,140,248,0.4)" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 40px rgba(20,184,166,0.4)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   NamasteDev ↗
                 </motion.a>
                 <motion.a
-                  href="https://medium.com/@deepakpatidar"
+                  href="https://medium.com/@deepakpatidar796"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -440,14 +447,14 @@ export default function Learnings() {
                     textTransform: "uppercase",
                     padding: "12px 24px",
                     borderRadius: 10,
-                    color: "#fff",
+                    color: "#1C1917",
                     border: "1px solid rgba(255,255,255,0.1)",
                     background: "rgba(255,255,255,0.04)",
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                     display: "inline-block",
                   }}
-                  whileHover={{ scale: 1.05, borderColor: "rgba(129,140,248,0.4)", background: "rgba(129,140,248,0.06)" }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(20,184,166,0.4)", background: "rgba(20,184,166,0.06)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Follow on Medium →

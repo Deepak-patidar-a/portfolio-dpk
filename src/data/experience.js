@@ -12,7 +12,7 @@ export const EXPERIENCES = [
     location: "Hyderabad",
     type: "Full-time",
     current: true,
-    color: "#818CF8",
+    color: "#14B8A6",
     logo: blueyonderLogo,
     domain: "Supply Chain SaaS · Enterprise",
     highlights: [
@@ -56,7 +56,7 @@ export const EXPERIENCES = [
     location: "Pune",
     type: "Full-time",
     current: false,
-    color: "#FFB800",
+    color: "#EA580C",
     logo: infosysLogo,
     domain: "Banking Platform · FinTech",
     highlights: [

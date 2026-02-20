@@ -7,14 +7,14 @@ function GridBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Deep gradient base */}
-      <div className="absolute inset-0 bg-[#0A0A0F]" />
+      <div className="absolute inset-0 bg-[#FAFAF9]" />
 
       {/* Animated gradient orbs */}
       <motion.div
         className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(129,140,248,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)",
         }}
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -23,7 +23,7 @@ function GridBackground() {
         className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%)",
         }}
         animate={{ x: [0, -40, 0], y: [0, -30, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
@@ -32,7 +32,7 @@ function GridBackground() {
         className="absolute top-[40%] left-[40%] w-[400px] h-[400px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,184,0,0.04) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(234,88,12,0.04) 0%, transparent 70%)",
         }}
         animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -53,7 +53,7 @@ function GridBackground() {
             <path
               d="M 60 0 L 0 0 0 60"
               fill="none"
-              stroke="#818CF8"
+              stroke="#14B8A6"
               strokeWidth="0.5"
             />
           </pattern>
@@ -90,13 +90,13 @@ function Particles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-[#818CF8]"
+          className="absolute rounded-full bg-[#14B8A6]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: p.size,
             height: p.size,
-            opacity: 0.3,
+            opacity: 0.05,
           }}
           animate={{
             y: [0, -40, 0],
@@ -151,8 +151,8 @@ function CustomCursor() {
           y: springY,
           width: isHovering ? 32 : 12,
           height: isHovering ? 32 : 12,
-          background: "rgba(129,140,248,0.9)",
-          boxShadow: "0 0 12px rgba(129,140,248,0.8)",
+          background: "rgba(20,184,166,0.9)",
+          boxShadow: "0 0 12px rgba(20,184,166,0.8)",
           transition: "width 0.2s, height 0.2s",
           marginLeft: isHovering ? -10 : 0,
           marginTop: isHovering ? -10 : 0,
@@ -198,12 +198,12 @@ function TypewriterRole() {
   }, [displayed, deleting, roleIndex, pause]);
 
   return (
-    <span className="text-[#818CF8]">
+    <span className="text-[#14B8A6]">
       {displayed}
       <motion.span
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity }}
-        className="inline-block w-[2px] h-[1em] bg-[#818CF8] ml-1 align-middle"
+        className="inline-block w-[2px] h-[1em] bg-[#14B8A6] ml-1 align-middle"
       />
     </span>
   );
@@ -250,9 +250,9 @@ function StatCounter({ value, label, delay }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay / 1000 + 1.5 }}
     >
-      <div className="text-2xl sm:text-3xl font-bold text-white font-display">
+      <div className="text-2xl sm:text-3xl font-bold text-gray-700 font-display">
         {count}
-        <span className="text-[#818CF8]">+</span>
+        <span className="text-[#14B8A6]">+</span>
       </div>
       <div className="text-[10px] sm:text-xs text-gray-500 mt-1 tracking-widest uppercase">
         {label}
@@ -275,7 +275,7 @@ export default function Hero() {
         .font-display { font-family: 'Syne', sans-serif; }
         .font-body { font-family: 'DM Sans', sans-serif; }
         .text-shimmer {
-          background: linear-gradient(90deg, #ffffff 0%, #818CF8 40%, #ffffff 60%, #FFB800 100%);
+          background: linear-gradient(90deg, #1C1917 0%, #14B8A6 40%, #1C1917 60%, #EA580C 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -304,7 +304,7 @@ export default function Hero() {
 
       <section
         className="font-body relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20"
-        style={{ background: "#0A0A0F" }}
+        style={{ background: "#FAFAF9" }}
       >
         <GridBackground />
         <Particles />
@@ -316,7 +316,7 @@ export default function Hero() {
 
           {/* Status badge */}
           <motion.div
-            className="inline-flex items-center gap-2 mt-4 mb-6 sm:mb-8 px-3 sm:px-4 py-2 rounded-full border border-[#818CF8]/20 bg-[#818CF8]/5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 mt-4 mb-6 sm:mb-8 px-3 sm:px-4 py-2 rounded-full border border-[#14B8A6]/20 bg-[#14B8A6]/5 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -365,10 +365,10 @@ export default function Hero() {
             transition={{ delay: 1.0 }}
           >
             Crafting{" "}
-            <span className="text-white font-medium">high-performance, scalable</span> and{" "}
-            <span className="text-white font-medium">thoughtful user experiences</span> front-end 
+            <span className="text-black font-medium">high-performance, scalable</span> and{" "}
+            <span className="text-black font-medium">thoughtful user experiences</span> front-end 
             systems that power enterprise workflows - currently building enterprise supply chain interfaces at{" "}
-            <span className="text-[#818CF8] font-medium">Blue Yonder</span>.
+            <span className="text-[#14B8A6] font-medium">Blue Yonder</span>.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -380,10 +380,10 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
-              className="btn-primary font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#0A0A0F] w-full sm:w-auto"
+              className="btn-primary font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#FAFAF9] w-full sm:w-auto"
               style={{
-                background: "linear-gradient(135deg, #818CF8, #6366F1)",
-                boxShadow: "0 0 30px rgba(129,140,248,0.3)",
+                background: "linear-gradient(135deg, #14B8A6, #6366F1)",
+                boxShadow: "0 0 30px rgba(20,184,166,0.3)",
                 padding: "14px 32px",
                 textDecoration: "none",
                 display: "inline-block",
@@ -391,7 +391,7 @@ export default function Hero() {
               }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 50px rgba(129,140,248,0.5)",
+                boxShadow: "0 0 50px rgba(20,184,166,0.5)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -400,15 +400,17 @@ export default function Hero() {
 
             <motion.a
               href="#contact"
-              className="font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-white border border-white/10 bg-white/5 backdrop-blur-sm w-full sm:w-auto"
+              className="font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-black border border-black/10 bg-black/5 backdrop-blur-sm w-full sm:w-auto"
               style={{
+                background: "linear-gradient(135deg, #14B8A6, #6366F1)",
+                boxShadow: "0 0 30px rgba(20,184,166,0.3)",
                 padding: "14px 32px",
                 textDecoration: "none",
                 display: "inline-block",
                 textAlign: "center",
                 transition: "border-color 0.3s, background 0.3s",
               }}
-              whileHover={{ scale: 1.05, borderColor: "rgba(129,140,248,0.4)", background: "rgba(255,255,255,0.1)" }}
+              whileHover={{ scale: 1.05, borderColor: "rgba(20,184,166,0.4)", background: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.97 }}
             >
               Let's Talk
@@ -423,11 +425,11 @@ export default function Hero() {
             transition={{ delay: 1.5 }}
           >
             <StatCounter value={5} label="Years Exp." delay={200} />
-            <div className="hidden sm:block w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-black" />
             <StatCounter value={20} label="Projects" delay={400} />
-            <div className="hidden sm:block w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-black" />
             <StatCounter value={8} label="Tech Stack" delay={600} />
-            <div className="hidden sm:block w-px h-10 bg-white/10" />
+            <div className="hidden sm:block w-px h-10 bg-black" />
             <StatCounter value={2} label="Companies" delay={800} />
           </motion.div>
         </div>
@@ -443,7 +445,7 @@ export default function Hero() {
             Scroll
           </span>
           <motion.div
-            className="w-px h-10 bg-gradient-to-b from-[#818CF8]/60 to-transparent"
+            className="w-px h-10 bg-gradient-to-b from-[#14B8A6]/60 to-transparent"
             animate={{ scaleY: [0, 1, 0], originY: 0 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -451,12 +453,12 @@ export default function Hero() {
 
         {/* Decorative corner accents */}
         <div className="absolute top-0 left-0 w-32 h-32 pointer-events-none opacity-30">
-          <div className="absolute top-6 left-6 w-8 h-px bg-[#818CF8]" />
-          <div className="absolute top-6 left-6 w-px h-8 bg-[#818CF8]" />
+          <div className="absolute top-6 left-6 w-8 h-px bg-[#14B8A6]" />
+          <div className="absolute top-6 left-6 w-px h-8 bg-[#14B8A6]" />
         </div>
         <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none opacity-30">
-          <div className="absolute bottom-6 right-6 w-8 h-px bg-[#818CF8]" />
-          <div className="absolute bottom-6 right-6 w-px h-8 bg-[#818CF8]" />
+          <div className="absolute bottom-6 right-6 w-8 h-px bg-[#14B8A6]" />
+          <div className="absolute bottom-6 right-6 w-px h-8 bg-[#14B8A6]" />
         </div>
       </section>
     </>

@@ -41,7 +41,7 @@ function BrowserMockup({ project, isVisible }) {
       <div
         className="flex items-center gap-2 px-4 py-3"
         style={{
-          background: "rgba(0,0,0,0.4)",
+          background: "rgba(255,255,255,0.4)",
           borderBottom: `1px solid ${project.color}15`,
         }}
       >
@@ -54,10 +54,10 @@ function BrowserMockup({ project, isVisible }) {
         {/* URL bar */}
         <div
           className="flex-1 mx-4 px-3 py-1 rounded-md flex items-center gap-2"
-          style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
         >
           <div className="w-2 h-2 rounded-full" style={{ background: project.color, opacity: 0.6 }} />
-          <span style={{ fontSize: 10, color: "#6B7280", fontFamily: "'DM Sans', sans-serif" }}>
+          <span style={{ fontSize: 10, color: "#A8A29E", fontFamily: "'DM Sans', sans-serif" }}>
             {project.liveUrl.replace("https://", "")}
           </span>
         </div>
@@ -114,7 +114,7 @@ function BrowserMockup({ project, isVisible }) {
                 fontFamily: "'Syne', sans-serif",
                 fontWeight: 800,
                 fontSize: 22,
-                color: "#fff",
+                color: "#1C1917",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -200,8 +200,8 @@ function FeaturedCard({ project }) {
                   fontSize: 10,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: project.status === "Live" ? "#34D399" : "#6B7280",
-                  background: project.status === "Live" ? "rgba(52,211,153,0.1)" : "rgba(255,255,255,0.05)",
+                  color: project.status === "Live" ? "#34D399" : "#A8A29E",
+                  background: project.status === "Live" ? "rgba(52,211,153,0.1)" : "rgba(255,255,255,0.04)",
                   border: `1px solid ${project.status === "Live" ? "rgba(52,211,153,0.25)" : "rgba(255,255,255,0.08)"}`,
                   borderRadius: 20,
                   padding: "3px 12px",
@@ -227,7 +227,7 @@ function FeaturedCard({ project }) {
                 fontFamily: "'Syne', sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "#fff",
+                color: "#1C1917",
                 lineHeight: 1.05,
                 marginBottom: 12,
               }}
@@ -240,7 +240,7 @@ function FeaturedCard({ project }) {
 
             <motion.p
               style={{
-                color: "#9CA3AF",
+                color: "#78716C",
                 fontSize: 15,
                 lineHeight: 1.8,
                 marginBottom: 24,
@@ -273,7 +273,7 @@ function FeaturedCard({ project }) {
                       boxShadow: `0 0 6px ${project.color}80`,
                     }}
                   />
-                  <span style={{ color: "#9CA3AF", fontSize: 14, lineHeight: 1.7 }}>{h}</span>
+                  <span style={{ color: "#78716C", fontSize: 14, lineHeight: 1.7 }}>{h}</span>
                 </motion.li>
               ))}
             </ul>
@@ -313,7 +313,7 @@ function FeaturedCard({ project }) {
                   textTransform: "uppercase",
                   padding: "12px 28px",
                   borderRadius: 10,
-                  color: "#0A0A0F",
+                  color: "#FAFAF9",
                   background: `linear-gradient(135deg, ${project.color}, ${project.color}BB)`,
                   boxShadow: `0 0 24px ${project.color}30`,
                   display: "inline-block",
@@ -336,7 +336,7 @@ function FeaturedCard({ project }) {
                   textTransform: "uppercase",
                   padding: "12px 28px",
                   borderRadius: 10,
-                  color: "#fff",
+                  color: "#1C1917",
                   border: "1px solid rgba(255,255,255,0.12)",
                   background: "rgba(255,255,255,0.04)",
                   display: "inline-block",
@@ -412,9 +412,9 @@ function SmallCard({ project, index }) {
           <span
             style={{
               fontSize: 10,
-              color: "#6B7280",
+              color: "#A8A29E",
               background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.06)",
               borderRadius: 20,
               padding: "2px 10px",
               fontFamily: "'DM Sans', sans-serif",
@@ -430,14 +430,14 @@ function SmallCard({ project, index }) {
               fontFamily: "'Syne', sans-serif",
               fontWeight: 800,
               fontSize: 22,
-              color: "#fff",
+              color: "#1C1917",
               lineHeight: 1.1,
               marginBottom: 8,
             }}
           >
             {project.title}
           </h3>
-          <p style={{ color: "#6B7280", fontSize: 14, lineHeight: 1.7 }}>
+          <p style={{ color: "#A8A29E", fontSize: 14, lineHeight: 1.7 }}>
             {project.description.slice(0, 120)}...
           </p>
         </div>
@@ -478,7 +478,7 @@ function SmallCard({ project, index }) {
               textTransform: "uppercase",
               padding: "10px 0",
               borderRadius: 8,
-              color: "#0A0A0F",
+              color: "#FAFAF9",
               background: `linear-gradient(135deg, ${project.color}, ${project.color}BB)`,
               textDecoration: "none",
               display: "block",
@@ -502,9 +502,9 @@ function SmallCard({ project, index }) {
               textTransform: "uppercase",
               padding: "10px 0",
               borderRadius: 8,
-              color: "#fff",
+              color: "#1C1917",
               border: "1px solid rgba(255,255,255,0.1)",
-              background: "rgba(255,255,255,0.03)",
+              background: "rgba(255,255,255,0.02)",
               textDecoration: "none",
               display: "block",
             }}
@@ -530,7 +530,7 @@ export default function Projects() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-projects {
-          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -539,7 +539,7 @@ export default function Projects() {
 
       <section
         id="projects"
-        style={{ background: "#0A0A0F", fontFamily: "'DM Sans', sans-serif" }}
+        style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
         {/* Background blobs */}
@@ -549,7 +549,7 @@ export default function Projects() {
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
@@ -562,7 +562,7 @@ export default function Projects() {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-                  color: "#fff",
+                  color: "#1C1917",
                   marginTop: 12,
                   lineHeight: 1.1,
                 }}
@@ -572,9 +572,9 @@ export default function Projects() {
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }}
               />
-              <p style={{ color: "#6B7280", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
+              <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
                 From AI-powered platforms to enterprise UI systems — projects
                 that solve real problems and push the frontend craft.
               </p>
@@ -583,7 +583,7 @@ export default function Projects() {
 
           {/* ── Featured Project ── */}
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#4B5563", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 20 }}>
+            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 20 }}>
               Featured Project
             </p>
           </RevealOnScroll>
@@ -594,7 +594,7 @@ export default function Projects() {
 
           {/* ── Other Projects ── */}
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#4B5563", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginTop: 48, marginBottom: 24 }}>
+            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginTop: 48, marginBottom: 24 }}>
               More Projects
             </p>
           </RevealOnScroll>
@@ -611,7 +611,7 @@ export default function Projects() {
               className="mt-16 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
               style={{
                 background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-                border: "1px solid rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.06)",
               }}
             >
               <div>
@@ -620,13 +620,13 @@ export default function Projects() {
                     fontFamily: "'Syne', sans-serif",
                     fontWeight: 800,
                     fontSize: 22,
-                    color: "#fff",
+                    color: "#1C1917",
                     marginBottom: 8,
                   }}
                 >
                   Want to see more?
                 </div>
-                <div style={{ color: "#6B7280", fontSize: 15, lineHeight: 1.6 }}>
+                <div style={{ color: "#A8A29E", fontSize: 15, lineHeight: 1.6 }}>
                   Check out my GitHub for experiments, open source contributions,<br className="hidden md:block" />
                   and other things I build when exploring new ideas.
                 </div>
@@ -643,9 +643,9 @@ export default function Projects() {
                   textTransform: "uppercase",
                   padding: "14px 32px",
                   borderRadius: 10,
-                  color: "#fff",
+                  color: "#1C1917",
                   border: "1px solid rgba(255,255,255,0.15)",
-                  background: "rgba(255,255,255,0.05)",
+                  background: "rgba(255,255,255,0.04)",
                   display: "inline-block",
                   textDecoration: "none",
                   whiteSpace: "nowrap",
@@ -653,8 +653,8 @@ export default function Projects() {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  borderColor: "rgba(129,140,248,0.4)",
-                  background: "rgba(129,140,248,0.06)",
+                  borderColor: "rgba(20,184,166,0.4)",
+                  background: "rgba(20,184,166,0.06)",
                 }}
                 whileTap={{ scale: 0.97 }}
               >

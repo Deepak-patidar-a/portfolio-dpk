@@ -51,13 +51,13 @@ function MetricCard({ metric, label, desc, color, index, isVisible }) {
           fontFamily: "'Syne', sans-serif",
           fontWeight: 600,
           fontSize: 12,
-          color: "#E5E7EB",
+          color: "#57534E",
           letterSpacing: "0.04em",
         }}
       >
         {label}
       </div>
-      <div style={{ color: "#6B7280", fontSize: 12, lineHeight: 1.6 }}>
+      <div style={{ color: "#A8A29E", fontSize: 12, lineHeight: 1.6 }}>
         {desc}
       </div>
     </motion.div>
@@ -135,7 +135,7 @@ function ExperienceCard({ exp, index }) {
         {index < EXPERIENCES.length - 1 && (
           <motion.div
             className="flex-1 w-px mt-3"
-            style={{ background: `linear-gradient(to bottom, ${exp.color}30, rgba(255,255,255,0.05))` }}
+            style={{ background: `linear-gradient(to bottom, ${exp.color}30, rgba(255,255,255,0.04))` }}
             initial={{ scaleY: 0, originY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -147,8 +147,8 @@ function ExperienceCard({ exp, index }) {
       <motion.div
         className="flex-1 rounded-2xl mb-8 overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-          border: `1px solid ${inView ? exp.color + "20" : "rgba(255,255,255,0.07)"}`,
+          background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+          border: `1px solid ${inView ? exp.color + "20" : "rgba(255,255,255,0.06)"}`,
           transition: "border-color 0.5s",
         }}
         initial={{ opacity: 0, x: 30 }}
@@ -215,7 +215,7 @@ function ExperienceCard({ exp, index }) {
                     fontFamily: "'Syne', sans-serif",
                     fontWeight: 800,
                     fontSize: 22,
-                    color: "#fff",
+                    color: "#1C1917",
                     lineHeight: 1.1,
                   }}
                 >
@@ -262,7 +262,7 @@ function ExperienceCard({ exp, index }) {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: 12,
-                  color: "#6B7280",
+                  color: "#A8A29E",
                   marginTop: 4,
                 }}
               >
@@ -277,14 +277,14 @@ function ExperienceCard({ exp, index }) {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 700,
                   fontSize: 13,
-                  color: "#9CA3AF",
+                  color: "#78716C",
                   whiteSpace: "nowrap",
                 }}
               >
                 {exp.period}
               </div>
               <div className="flex items-center gap-2">
-                <span style={{ fontSize: 14, color: "#6B7280", fontFamily: "'DM Sans', sans-serif" }}>
+                <span style={{ fontSize: 14, color: "#A8A29E", fontFamily: "'DM Sans', sans-serif" }}>
                   📍 {exp.location}
                 </span>
                 <span
@@ -389,7 +389,7 @@ function ExperienceCard({ exp, index }) {
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
                         fontSize: 14,
-                        color: "#9CA3AF",
+                        color: "#78716C",
                         lineHeight: 1.75,
                       }}
                     >
@@ -483,17 +483,17 @@ function EducationCard() {
                 />
               </div>
             </div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff" }}>
+            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#1C1917" }}>
               {EDUCATION.degree}
             </h3>
             <div style={{ color: EDUCATION.color, fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600, marginTop: 4 }}>
               {EDUCATION.field} — {EDUCATION.university}
             </div>
-            <div style={{ color: "#6B7280", fontSize: 12, fontFamily: "'DM Sans', sans-serif", marginTop: 4 }}>
+            <div style={{ color: "#A8A29E", fontSize: 12, fontFamily: "'DM Sans', sans-serif", marginTop: 4 }}>
               📍 {EDUCATION.location}
             </div>
           </div>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, color: "#9CA3AF", flexShrink: 0 }}>
+          <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, color: "#78716C", flexShrink: 0 }}>
             {EDUCATION.period}
           </div>
         </div>
@@ -510,7 +510,7 @@ export default function Experience() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-exp {
-          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -519,14 +519,14 @@ export default function Experience() {
 
       <section
         id="work"
-        style={{ background: "#0A0A0F", fontFamily: "'DM Sans', sans-serif" }}
+        style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-32 overflow-hidden"
       >
         {/* Background blobs */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(255,184,0,0.03) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(234,88,12,0.03) 0%, transparent 70%)" }} />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
 
@@ -538,7 +538,7 @@ export default function Experience() {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-                  color: "#fff",
+                  color: "#1C1917",
                   marginTop: 12,
                   lineHeight: 1.1,
                 }}
@@ -547,8 +547,8 @@ export default function Experience() {
                 <span className="shimmer-exp">made an impact</span>
               </h2>
               <div className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }} />
-              <p style={{ color: "#6B7280", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
+                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }} />
+              <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
                 5+ years across enterprise SaaS and FinTech — building products
                 that serve real users at scale.
               </p>
@@ -558,7 +558,7 @@ export default function Experience() {
           {/* ── Work Timeline ── */}
           <div className="mb-6">
             <RevealOnScroll>
-              <p style={{ color: "#4B5563", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
+              <p style={{ color: "#D6D3D7", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
                 Work History
               </p>
             </RevealOnScroll>
@@ -570,11 +570,11 @@ export default function Experience() {
 
           {/* Divider */}
           <div className="w-full h-px mb-12"
-            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent)" }} />
+            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent)" }} />
 
           {/* ── Education ── */}
           <RevealOnScroll>
-            <p style={{ color: "#4B5563", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
+            <p style={{ color: "#D6D3D1", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 32 }}>
               Education
             </p>
           </RevealOnScroll>
@@ -586,13 +586,13 @@ export default function Experience() {
             <div
               className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden"
               style={{
-                border: "1px solid rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.06)",
                 background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
               }}
             >
               {[
-                { value: "5+", label: "Years Total", color: "#818CF8" },
-                { value: "2", label: "Companies", color: "#FFB800" },
+                { value: "5+", label: "Years Total", color: "#14B8A6" },
+                { value: "2", label: "Companies", color: "#EA580C" },
                 { value: "60+", label: "APIs Integrated", color: "#A78BFA" },
                 { value: "99.9%", label: "System Uptime", color: "#34D399" },
               ].map((stat, i) => (
@@ -611,7 +611,7 @@ export default function Experience() {
                   }}>
                     {stat.value}
                   </div>
-                  <div style={{ color: "#6B7280", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
+                  <div style={{ color: "#A8A29E", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
                     {stat.label}
                   </div>
                 </div>

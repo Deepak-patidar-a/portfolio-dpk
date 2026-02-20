@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       style={{
-        background: "#060608",
+        background: "#FAFAF9",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         fontFamily: "'DM Sans', sans-serif",
       }}
@@ -19,15 +19,15 @@ const Footer = () => {
                 fontFamily: "'Syne', sans-serif",
                 fontWeight: 800,
                 fontSize: 24,
-                color: "#fff",
+                color: "#1C1917",
                 marginBottom: 6,
               }}
             >
-              <span style={{ color: "#818CF8" }}>&lt;</span>
+              <span style={{ color: "#14B8A6" }}>&lt;</span>
               DP
-              <span style={{ color: "#818CF8" }}>/&gt;</span>
+              <span style={{ color: "#14B8A6" }}>/&gt;</span>
             </div>
-            <div style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.6, maxWidth: 260 }}>
+            <div style={{ color: "#A8A29E", fontSize: 13, lineHeight: 1.6, maxWidth: 260 }}>
               Senior Frontend Engineer · React Specialist ·
               Open to new opportunities in India.
             </div>
@@ -39,12 +39,12 @@ const Footer = () => {
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 style={{
-                  color: "#6B7280",
+                  color: "#A8A29E",
                   fontSize: 13,
                   textDecoration: "none",
                   letterSpacing: "0.06em",
                 }}
-                whileHover={{ color: "#818CF8", y: -2 }}
+                whileHover={{ color: "#14B8A6", y: -2 }}
               >
                 {link}
               </motion.a>
@@ -75,8 +75,8 @@ const Footer = () => {
                 }}
                 whileHover={{
                   scale: 1.12,
-                  background: "rgba(129,140,248,0.08)",
-                  borderColor: "rgba(129,140,248,0.3)",
+                  background: "rgba(20,184,166,0.08)",
+                  borderColor: "rgba(20,184,166,0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -86,14 +86,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div style={{ height: 1, background: "linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent)", marginBottom: 24 }} />
+        <div style={{ height: 1, background: "linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent)", marginBottom: 24 }} />
 
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div style={{ color: "#4B5563", fontSize: 12 }}>
+          <div style={{ color: "#D6D3D1", fontSize: 12 }}>
             © {new Date().getFullYear()} Deepak Patidar · Designed & Built with ❤️ using React + Tailwind + Framer Motion
           </div>
-          <div style={{ color: "#4B5563", fontSize: 12, display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ color: "#D6D3D1", fontSize: 12, display: "flex", alignItems: "center", gap: 6 }}>
             <motion.span
               style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", display: "inline-block" }}
               animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}

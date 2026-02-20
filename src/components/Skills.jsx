@@ -68,7 +68,7 @@ function SkillRow({ skill, color, index, isVisible }) {
             </span>
           )}
         </div>
-        <span style={{ fontSize: 11, color: "#6B7280", fontFamily: "'DM Sans', sans-serif" }}>
+        <span style={{ fontSize: 11, color: "#A8A29E", fontFamily: "'DM Sans', sans-serif" }}>
           {proficiencyLabel(skill.level)}
         </span>
       </div>
@@ -78,7 +78,7 @@ function SkillRow({ skill, color, index, isVisible }) {
         style={{
           height: 4,
           borderRadius: 999,
-          background: "rgba(255,255,255,0.05)",
+          background: "rgba(255,255,255,0.04)",
           overflow: "hidden",
         }}
       >
@@ -109,8 +109,8 @@ function CategoryCard({ category, delay }) {
       ref={ref}
       className="relative rounded-2xl p-7 flex flex-col gap-6"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-        border: `1px solid ${hovered ? category.color + "30" : "rgba(255,255,255,0.07)"}`,
+        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+        border: `1px solid ${hovered ? category.color + "30" : "rgba(255,255,255,0.06)"}`,
         transition: "border-color 0.3s",
       }}
       initial={{ opacity: 0, y: 40 }}
@@ -146,7 +146,7 @@ function CategoryCard({ category, delay }) {
             fontFamily: "'Syne', sans-serif",
             fontWeight: 700,
             fontSize: 16,
-            color: "#fff",
+            color: "#1C1917",
             letterSpacing: "0.02em",
           }}
         >
@@ -203,7 +203,7 @@ function SkillMarquee() {
               background: `${skill.color}10`,
               border: `1px solid ${skill.color}25`,
               fontSize: 13,
-              color: "#9CA3AF",
+              color: "#78716C",
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
@@ -232,7 +232,7 @@ export default function Skills() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .shimmer-skills {
-          background: linear-gradient(90deg, #818CF8 0%, #FFB800 100%);
+          background: linear-gradient(90deg, #14B8A6 0%, #EA580C 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -241,14 +241,14 @@ export default function Skills() {
 
       <section
         id="skills"
-        style={{ background: "#0A0A0F", fontFamily: "'DM Sans', sans-serif" }}
+        style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
         {/* Background blobs */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(129,140,248,0.03) 0%, transparent 65%)",
+            background: "radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 65%)",
           }}
         />
 
@@ -262,7 +262,7 @@ export default function Skills() {
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-                  color: "#fff",
+                  color: "#1C1917",
                   marginTop: 12,
                   lineHeight: 1.1,
                 }}
@@ -272,7 +272,7 @@ export default function Skills() {
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(129,140,248,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }}
               />
             </div>
           </RevealOnScroll>
@@ -281,7 +281,7 @@ export default function Skills() {
           <RevealOnScroll delay={0.1}>
             <p
               style={{
-                color: "#6B7280",
+                color: "#A8A29E",
                 fontSize: 16,
                 lineHeight: 1.75,
                 maxWidth: 560,
@@ -318,7 +318,7 @@ export default function Skills() {
           <RevealOnScroll delay={0.1}>
             <p
               style={{
-                color: "#4B5563",
+                color: "#A8A29E",
                 fontSize: 15,
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
@@ -336,13 +336,13 @@ export default function Skills() {
             <div
               className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden"
               style={{
-                border: "1px solid rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.06)",
                 background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
               }}
             >
               {[
-                { value: "5+", label: "Years Experience", color: "#818CF8" },
-                { value: "20+", label: "Projects Shipped", color: "#FFB800" },
+                { value: "5+", label: "Years Experience", color: "#14B8A6" },
+                { value: "20+", label: "Projects Shipped", color: "#EA580C" },
                 { value: "2", label: "Frameworks Expert", color: "#A78BFA" },
                 { value: "8+", label: "Tools Mastered", color: "#34D399" },
               ].map((stat, i) => (
@@ -365,7 +365,7 @@ export default function Skills() {
                   </div>
                   <div
                     style={{
-                      color: "#6B7280",
+                      color: "#A8A29E",
                       fontSize: 12,
                       letterSpacing: "0.05em",
                       fontFamily: "'DM Sans', sans-serif",
