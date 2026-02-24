@@ -1,7 +1,33 @@
 export const PROJECTS = [
   {
-    id: "netflix-gpt",
+    id: "fasal-mitra",
     number: "01",
+    title: "Fasal Mitra",
+    tagline: "Multilingual agriculture platform for Indian farmers",
+    description:
+      "A full-stack agriculture platform serving Indian farmers with AI-powered crop disease identification, live mandi price tracking, real-time expert consultation, and secure e-commerce for fertilizers and pesticides. Built with bilingual support (English/Hindi) to maximize accessibility across rural India.",
+    highlights: [
+      "AI-powered plant disease diagnosis using Hugging Face inference API with TensorFlow",
+      "Real-time expert consultation system via Socket.io with crop-specific chat rooms and live typing indicators",
+      "Secure JWT authentication with access/refresh token rotation using HTTP-only cookies",
+      "Integrated Razorpay payment gateway with server-side signature verification for e-commerce",
+      "Live mandi prices and location-based irrigation alerts via OpenWeatherMap and Data.gov.in APIs",
+      "Multilingual interface (English/Hindi) for rural farmer accessibility",
+    ],
+    stack: ["React", "Node.js", "TypeScript", "MongoDB", "Socket.io", "TensorFlow", "Hugging Face API", "Razorpay"],
+    color: "#059669",              
+    accentColor: "#059669",
+    gradient: "linear-gradient(135deg, #ECFDF5 0%, #FAFAF9 60%)", 
+    liveUrl: "https://fasal-mitra-kappa.vercel.app",  
+    githubUrl: "https://github.com/Deepak-patidar-a/fasal-mitra", 
+    status: "Live", 
+    featured: true, 
+    icon: "🌾",
+    mockupBg: "linear-gradient(135deg, #ECFDF5, #D1FAE5, #FAFAF9)", 
+  },
+  {
+    id: "netflix-gpt",
+    number: "02",
     title: "Netflix-GPT",
     tagline: "AI-powered movie discovery platform",
     description:
@@ -25,8 +51,8 @@ export const PROJECTS = [
     mockupBg: "linear-gradient(135deg, #FEF2F2, #FEE2E2, #FAFAF9)",  // Red-50 → Red-100 → Stone
   },
   {
-    id: "project-2",
-    number: "02",
+    id: "trade-forge",
+    number: "03",
     title: "TradeForge",
     tagline: "Real-time stock trading platform, built from first principles",
     description:
@@ -44,32 +70,8 @@ export const PROJECTS = [
     liveUrl: "https://tradeforge-hucn3mu5g-deepak-patidars-projects.vercel.app/",
     githubUrl: "https://github.com/Deepak-patidar-a/trade_forge_showcase",
     status: "In Progress 🚧",
-    featured: false,  // Changed to false so it shows in the 2-column grid
+    featured: true,  // Changed to false so it shows in the 2-column grid
     icon: "📈",
     mockupBg: "linear-gradient(135deg, #F0FDFA, #CCFBF1, #FAFAF9)",  // Teal-50 → Teal-100 → Stone
-  },
-  {
-    id: "project-3",
-    number: "03",
-    title: "Another Project",
-    tagline: "Add your third project here",
-    description:
-      "This could be a component library, a dashboard, a design system, or anything you've built that shows your frontend depth. Quality over quantity  -3 strong projects beat 10 mediocre ones.",
-    highlights: [
-      "Add your key feature or achievement here",
-      "Think: performance win, clever architecture, UI challenge",
-      "Open source contributions also count here",
-      "Link to GitHub repo or live demo",
-    ],
-    stack: ["React", "Material UI", "Redux", "REST APIs"],
-    color: "#EA580C",              // Orange-600
-    accentColor: "#EA580C",
-    gradient: "linear-gradient(135deg, #FFF7ED 0%, #FAFAF9 60%)",  // Orange-50 to stone
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Add Link",
-    featured: false,
-    icon: "⚡",
-    mockupBg: "linear-gradient(135deg, #FFF7ED, #FFEDD5, #FAFAF9)",  // Orange-50 → Orange-100 → Stone
-  },
+  }
 ];
