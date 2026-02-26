@@ -145,19 +145,20 @@ function CustomCursor() {
     <>
       {/* Main dot */}
       <motion.div
-        className="custom-cursor fixed top-0 left-0 z-[9999] rounded-full pointer-events-none mix-blend-screen"
-        style={{
-          x: springX,
-          y: springY,
-          width: isHovering ? 32 : 12,
-          height: isHovering ? 32 : 12,
-          background: "rgba(20,184,166,0.9)",
-          boxShadow: "0 0 12px rgba(20,184,166,0.8)",
-          transition: "width 0.2s, height 0.2s",
-          marginLeft: isHovering ? -10 : 0,
-          marginTop: isHovering ? -10 : 0,
-        }}
-      />
+      className="custom-cursor fixed top-0 left-0 z-[9999] rounded-full pointer-events-none"
+      style={{
+        x: springX,
+        y: springY,
+        width: isHovering ? 32 : 12,
+        height: isHovering ? 32 : 12,
+        background: "#0D9488",  // Solid teal-700
+        border: "2px solid #FAFAF9",  // White border for contrast
+        boxShadow: "0 2px 12px rgba(13,148,136,0.4)",
+        transition: "width 0.2s, height 0.2s",
+        marginLeft: isHovering ? -10 : 0,
+        marginTop: isHovering ? -10 : 0,
+      }}
+    />
     </>
   );
 }

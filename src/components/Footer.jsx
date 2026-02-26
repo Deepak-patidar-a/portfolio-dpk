@@ -6,10 +6,11 @@ const Footer = () => {
   return (
     <footer
       style={{
-        background: "#FAFAF9",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        background: "#060608",
+        borderTop: "1px solid rgba(0,0,0,0.06)",
         fontFamily: "'DM Sans', sans-serif",
       }}
+      className="pb-20 md:pb-0"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-10 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
