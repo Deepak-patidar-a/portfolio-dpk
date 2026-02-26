@@ -1,16 +1,16 @@
 import { motion} from "framer-motion";
 
 const Footer = () => {
-  const NAV_LINKS = ["About", "Skills", "Work", "Projects", "Learnings", "Contact"];
+  const NAV_LINKS = ["About", "Work", "Projects", "Skills", "Learnings", "Contact"];
 
   return (
     <footer
       style={{
-        background: "#060608",
-        borderTop: "1px solid rgba(0,0,0,0.06)",
+        background: "#FAFAF9",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
         fontFamily: "'DM Sans', sans-serif",
       }}
-      className="pb-20 md:pb-0"
+      className="pb-18 md:pb-0"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-10 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">

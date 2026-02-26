@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { PROJECTS } from "../data/projects";
 
 function RevealOnScroll({ children, delay = 0, direction = "up" }) {
@@ -41,7 +41,7 @@ function BrowserMockup({ project, isVisible }) {
       <div
         className="flex items-center gap-2 px-4 py-3"
         style={{
-          background: "rgba(255,255,255,0.4)",
+          background: "rgba(255,255,255,0.7)",
           borderBottom: `1px solid ${project.color}15`,
         }}
       >
@@ -54,10 +54,10 @@ function BrowserMockup({ project, isVisible }) {
         {/* URL bar */}
         <div
           className="flex-1 mx-4 px-3 py-1 rounded-md flex items-center gap-2"
-          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.08)" }}
         >
           <div className="w-2 h-2 rounded-full" style={{ background: project.color, opacity: 0.6 }} />
-          <span style={{ fontSize: 10, color: "#A8A29E", fontFamily: "'DM Sans', sans-serif" }}>
+          <span style={{ fontSize: 10, color: "#78716C", fontFamily: "'DM Sans', sans-serif" }}>
             {project.liveUrl.replace("https://", "")}
           </span>
         </div>
@@ -176,7 +176,7 @@ function FeaturedCard({ project }) {
       <div style={{ height: 3, background: `linear-gradient(to right, ${project.color}, ${project.color}50, transparent)` }} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        {/* Left -content */}
+        {/* Left - content */}
         <div className="p-8 md:p-12 flex flex-col justify-between gap-8">
           {/* Header */}
           <div>
@@ -200,9 +200,9 @@ function FeaturedCard({ project }) {
                   fontSize: 10,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: project.status === "Live" ? "#34D399" : "#A8A29E",
-                  background: project.status === "Live" ? "rgba(52,211,153,0.1)" : "rgba(255,255,255,0.04)",
-                  border: `1px solid ${project.status === "Live" ? "rgba(52,211,153,0.25)" : "rgba(255,255,255,0.08)"}`,
+                  color: project.status === "Live" ? "#059669" : "#78716C",
+                  background: project.status === "Live" ? "rgba(5,150,105,0.1)" : "rgba(0,0,0,0.04)",
+                  border: `1px solid ${project.status === "Live" ? "rgba(5,150,105,0.25)" : "rgba(0,0,0,0.08)"}`,
                   borderRadius: 20,
                   padding: "3px 12px",
                   fontFamily: "'DM Sans', sans-serif",
@@ -213,7 +213,7 @@ function FeaturedCard({ project }) {
               >
                 {project.status === "Live" && (
                   <motion.span
-                    style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", display: "inline-block" }}
+                    style={{ width: 6, height: 6, borderRadius: "50%", background: "#059669", display: "inline-block" }}
                     animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   />
@@ -337,8 +337,8 @@ function FeaturedCard({ project }) {
                   padding: "12px 28px",
                   borderRadius: 10,
                   color: "#1C1917",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(0,0,0,0.12)",
+                  background: "rgba(0,0,0,0.04)",
                   display: "inline-block",
                   textDecoration: "none",
                 }}
@@ -351,7 +351,7 @@ function FeaturedCard({ project }) {
           </div>
         </div>
 
-        {/* Right -Mockup */}
+        {/* Right - Mockup */}
         <div className="p-8 md:p-10 flex items-center justify-center">
           <div className="w-full max-w-lg">
             <BrowserMockup project={project} isVisible={inView} />
@@ -412,9 +412,9 @@ function SmallCard({ project, index }) {
           <span
             style={{
               fontSize: 10,
-              color: "#A8A29E",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.06)",
+              color: "#78716C",
+              background: "rgba(0,0,0,0.04)",
+              border: "1px solid rgba(0,0,0,0.06)",
               borderRadius: 20,
               padding: "2px 10px",
               fontFamily: "'DM Sans', sans-serif",
@@ -437,7 +437,7 @@ function SmallCard({ project, index }) {
           >
             {project.title}
           </h3>
-          <p style={{ color: "#A8A29E", fontSize: 14, lineHeight: 1.7 }}>
+          <p style={{ color: "#78716C", fontSize: 14, lineHeight: 1.7 }}>
             {project.description.slice(0, 120)}...
           </p>
         </div>
@@ -463,7 +463,7 @@ function SmallCard({ project, index }) {
         </div>
 
         {/* Links */}
-        <div className="flex gap-3 mt-auto pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="flex gap-3 mt-auto pt-2" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
           <motion.a
             href={project.liveUrl}
             target="_blank"
@@ -503,8 +503,8 @@ function SmallCard({ project, index }) {
               padding: "10px 0",
               borderRadius: 8,
               color: "#1C1917",
-              border: "1px solid rgba(255,255,255,0.1)",
-              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(0,0,0,0.1)",
+              background: "rgba(0,0,0,0.02)",
               textDecoration: "none",
               display: "block",
             }}
@@ -545,15 +545,14 @@ export default function Projects() {
         {/* Background blobs */}
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(229,9,20,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(220,38,38,0.03) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(13,148,136,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-
           {/* ── Heading ── */}
           <RevealOnScroll>
             <div className="mb-16">
@@ -567,15 +566,14 @@ export default function Projects() {
                   lineHeight: 1.1,
                 }}
               >
-                Things I've{" "}
-                <span className="shimmer-projects">built & shipped</span>
+                Things I've <span className="shimmer-projects">built & shipped</span>
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(13,148,136,0.5), transparent)" }}
               />
               <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 520, marginTop: 16 }}>
-                From AI-powered platforms to enterprise UI systems -projects
+                From AI-powered platforms to enterprise UI systems - projects
                 that solve real problems and push the frontend craft.
               </p>
             </div>
@@ -583,8 +581,16 @@ export default function Projects() {
 
           {/* ── Featured Project ── */}
           <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#78716C", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 20 }}>
-              Featured Project
+            <p
+              style={{
+                color: "#78716C",
+                fontSize: 15,
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                marginBottom: 20,
+              }}
+            >
+              Featured Projects
             </p>
           </RevealOnScroll>
 
@@ -593,25 +599,38 @@ export default function Projects() {
           ))}
 
           {/* ── Other Projects ── */}
-          <RevealOnScroll delay={0.05}>
-            <p style={{ color: "#78716C", fontSize: 15, letterSpacing: "0.35em", textTransform: "uppercase", marginTop: 48, marginBottom: 24 }}>
-              More Projects
-            </p>
-          </RevealOnScroll>
+          {rest.length > 0 && (
+            <>
+              <RevealOnScroll delay={0.05}>
+                <p
+                  style={{
+                    color: "#78716C",
+                    fontSize: 15,
+                    letterSpacing: "0.35em",
+                    textTransform: "uppercase",
+                    marginTop: 48,
+                    marginBottom: 24,
+                  }}
+                >
+                  More Projects
+                </p>
+              </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {rest.map((project, i) => (
-              <SmallCard key={project.id} project={project} index={i} />
-            ))}
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {rest.map((project, i) => (
+                  <SmallCard key={project.id} project={project} index={i} />
+                ))}
+              </div>
+            </>
+          )}
 
           {/* ── GitHub CTA ── */}
           <RevealOnScroll delay={0.1}>
             <div
               className="mt-16 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
               style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01))",
+                border: "1px solid rgba(0,0,0,0.06)",
               }}
             >
               <div>
@@ -627,7 +646,8 @@ export default function Projects() {
                   Want to see more?
                 </div>
                 <div style={{ color: "#A8A29E", fontSize: 15, lineHeight: 1.6 }}>
-                  Check out my GitHub for experiments, open source contributions,<br className="hidden md:block" />
+                  Check out my GitHub for experiments, open source contributions,
+                  <br className="hidden md:block" />
                   and other things I build when exploring new ideas.
                 </div>
               </div>
@@ -644,8 +664,8 @@ export default function Projects() {
                   padding: "14px 32px",
                   borderRadius: 10,
                   color: "#1C1917",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(0,0,0,0.15)",
+                  background: "rgba(0,0,0,0.04)",
                   display: "inline-block",
                   textDecoration: "none",
                   whiteSpace: "nowrap",
@@ -653,8 +673,8 @@ export default function Projects() {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  borderColor: "rgba(20,184,166,0.4)",
-                  background: "rgba(20,184,166,0.06)",
+                  borderColor: "rgba(13,148,136,0.4)",
+                  background: "rgba(13,148,136,0.06)",
                 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -662,7 +682,6 @@ export default function Projects() {
               </motion.a>
             </div>
           </RevealOnScroll>
-
         </div>
       </section>
     </>
