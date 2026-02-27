@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { COURSES , BLOG_PLACEHOLDERS } from "../data/common";
+import { COURSES, BLOG_PLACEHOLDERS } from "../data/common";
 
 function RevealOnScroll({ children, delay = 0, direction = "up" }) {
   const ref = useRef(null);
@@ -30,7 +30,7 @@ function CourseCard({ course, index }) {
       ref={ref}
       className="relative rounded-2xl overflow-hidden flex flex-col"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+        background: "linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01))",
         border: `1px solid ${course.color}20`,
       }}
       initial={{ opacity: 0, y: 40 }}
@@ -42,7 +42,6 @@ function CourseCard({ course, index }) {
       <div style={{ height: 3, background: `linear-gradient(to right, ${course.color}, ${course.color}50, transparent)` }} />
 
       <div className="p-7 flex flex-col gap-5 flex-1">
-
         {/* Header */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -75,9 +74,9 @@ function CourseCard({ course, index }) {
               fontSize: 10,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: course.status === "Completed" ? "#34D399" : course.color,
-              background: course.status === "Completed" ? "rgba(52,211,153,0.1)" : `${course.color}12`,
-              border: `1px solid ${course.status === "Completed" ? "rgba(52,211,153,0.25)" : course.color + "30"}`,
+              color: course.status === "Completed" ? "#059669" : course.color,
+              background: course.status === "Completed" ? "rgba(5,150,105,0.1)" : `${course.color}12`,
+              border: `1px solid ${course.status === "Completed" ? "rgba(5,150,105,0.25)" : course.color + "30"}`,
               borderRadius: 20,
               padding: "4px 10px",
               fontFamily: "'DM Sans', sans-serif",
@@ -85,9 +84,7 @@ function CourseCard({ course, index }) {
             }}
           >
             {course.status === "Completed" ? (
-              <motion.span
-                style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", display: "inline-block" }}
-              />
+              <motion.span style={{ width: 6, height: 6, borderRadius: "50%", background: "#059669", display: "inline-block" }} />
             ) : (
               <motion.span
                 style={{ width: 6, height: 6, borderRadius: "50%", background: course.color, display: "inline-block" }}
@@ -124,15 +121,13 @@ function CourseCard({ course, index }) {
                   boxShadow: `0 0 6px ${course.color}60`,
                 }}
               />
-              <span style={{ color: "#A8A29E", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>
-                {h}
-              </span>
+              <span style={{ color: "#A8A29E", fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>{h}</span>
             </motion.div>
           ))}
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-auto pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="flex flex-wrap gap-2 mt-auto pt-4" style={{ borderTop: "1px solid rgba(0,0,0,0.04)" }}>
           {course.tags.map((tag) => (
             <span
               key={tag}
@@ -164,8 +159,8 @@ function BlogCard({ post, index }) {
       ref={ref}
       className="group relative rounded-2xl p-6 flex flex-col gap-4"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-        border: "1px solid rgba(255,255,255,0.06)",
+        background: "linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01))",
+        border: "1px solid rgba(0,0,0,0.06)",
         cursor: "default",
       }}
       initial={{ opacity: 0, y: 30 }}
@@ -209,7 +204,7 @@ function BlogCard({ post, index }) {
           fontFamily: "'Syne', sans-serif",
           fontWeight: 700,
           fontSize: 15,
-          color: "#57534E",
+          color: "#1C1917",
           lineHeight: 1.5,
         }}
       >
@@ -217,15 +212,12 @@ function BlogCard({ post, index }) {
       </h4>
 
       {/* Excerpt */}
-      <p style={{ color: "#A8A29E", fontSize: 13, lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
+      <p style={{ color: "#78716C", fontSize: 13, lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
         {post.excerpt}
       </p>
 
       {/* Footer */}
-      <div
-        className="flex items-center justify-between pt-3"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-      >
+      <div className="flex items-center justify-between pt-3" style={{ borderTop: "1px solid rgba(0,0,0,0.04)" }}>
         <span style={{ color: "#78716C", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
           {post.readTime}
         </span>
@@ -235,16 +227,21 @@ function BlogCard({ post, index }) {
           rel="noopener noreferrer"
           style={{
             fontSize: 11,
-            color: "#78716C",
+            color: post.status === "Available on Medium" ? post.color : "#78716C",
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: "0.08em",
             textDecoration: "none",
             transition: "0.2s",
+            cursor: post.status === "Available on Medium" ? "pointer" : "default",
           }}
-          onMouseEnter={e => e.target.style.color = "#A8A29E"}
-          onMouseLeave={e => e.target.style.color = "#78716C"}
+          onMouseEnter={(e) => {
+            if (post.status === "Available on Medium") e.target.style.color = "#1C1917";
+          }}
+          onMouseLeave={(e) => {
+            if (post.status === "Available on Medium") e.target.style.color = post.color;
+          }}
         >
-          Medium →
+          {post.status === "Available on Medium" ? "Read on Medium →" : "Coming Soon"}
         </a>
       </div>
 
@@ -277,18 +274,17 @@ export default function Learnings() {
         style={{ background: "#FAFAF9", fontFamily: "'DM Sans', sans-serif" }}
         className="relative py-20 overflow-hidden"
       >
-        {/* Background blobs -indigo toned */}
+        {/* Background blobs */}
         <div
           className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(20,184,166,0.04) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(13,148,136,0.04) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(234,88,12,0.03) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(220,38,38,0.03) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-
           {/* ── Heading ── */}
           <RevealOnScroll>
             <div className="mb-16">
@@ -302,14 +298,11 @@ export default function Learnings() {
                   lineHeight: 1.1,
                 }}
               >
-                Never stop{" "}
-                <span className="shimmer-growth">learning</span>
+                Never stop <span className="shimmer-growth">learning</span>
               </h2>
-              <div className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }} />
+              <div className="mt-5 h-px w-32" style={{ background: "linear-gradient(to right, rgba(13,148,136,0.5), transparent)" }} />
               <p style={{ color: "#A8A29E", fontSize: 16, lineHeight: 1.75, maxWidth: 540, marginTop: 16 }}>
-                5+ years in industry and still deepening the fundamentals.
-                Great engineers never stop going back to first principles.
+                5+ years in industry and still deepening the fundamentals. Great engineers never stop going back to first principles.
               </p>
             </div>
           </RevealOnScroll>
@@ -320,14 +313,14 @@ export default function Learnings() {
               <p style={{ color: "#78716C", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
                 Structured Learning · NamasteDev
               </p>
-              <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
+              <div className="flex-1 h-px" style={{ background: "rgba(0,0,0,0.06)" }} />
               <motion.a
                 href="https://namastedev.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
                   fontSize: 11,
-                  color: "#14B8A6",
+                  color: "#0D9488",
                   fontFamily: "'DM Sans', sans-serif",
                   letterSpacing: "0.08em",
                   textDecoration: "none",
@@ -340,7 +333,7 @@ export default function Learnings() {
             </div>
           </RevealOnScroll>
 
-          {/* Course cards -3 columns */}
+          {/* Course cards - 3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {COURSES.map((course, i) => (
               <CourseCard key={course.id} course={course} index={i} />
@@ -348,22 +341,21 @@ export default function Learnings() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px mb-16"
-            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent)" }} />
+          <div className="w-full h-px mb-16" style={{ background: "linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent)" }} />
 
           {/* ── Blog Section ── */}
           <RevealOnScroll>
             <div className="flex items-center gap-4 mb-8">
               <p style={{ color: "#78716C", fontSize: 11, letterSpacing: "0.35em", textTransform: "uppercase" }}>
-                Writing · Coming to Medium
+                Writing · Medium
               </p>
-              <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
+              <div className="flex-1 h-px" style={{ background: "rgba(0,0,0,0.06)" }} />
               <span
                 style={{
                   fontSize: 10,
-                  color: "#EA580C",
-                  background: "rgba(234,88,12,0.1)",
-                  border: "1px solid rgba(234,88,12,0.2)",
+                  color: "#DC2626",
+                  background: "rgba(220,38,38,0.1)",
+                  border: "1px solid rgba(220,38,38,0.2)",
                   borderRadius: 20,
                   padding: "3px 10px",
                   fontFamily: "'DM Sans', sans-serif",
@@ -378,13 +370,11 @@ export default function Learnings() {
 
           <RevealOnScroll delay={0.05}>
             <p style={{ color: "#A8A29E", fontSize: 15, lineHeight: 1.75, maxWidth: 560, marginBottom: 32 }}>
-              Real war stories from enterprise frontend development -
-              not tutorials, but lessons learned the hard way building
-              production systems at scale.
+              Real war stories from enterprise frontend development - not tutorials, but lessons learned the hard way building production systems at scale.
             </p>
           </RevealOnScroll>
 
-          {/* Blog cards -2x2 grid */}
+          {/* Blog cards - 2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16">
             {BLOG_PLACEHOLDERS.map((post, i) => (
               <BlogCard key={post.id} post={post} index={i} />
@@ -396,18 +386,16 @@ export default function Learnings() {
             <div
               className="rounded-2xl p-7 md:p-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
               style={{
-                background: "linear-gradient(135deg, rgba(20,184,166,0.06), rgba(234,88,12,0.03))",
-                border: "1px solid rgba(20,184,166,0.15)",
+                background: "linear-gradient(135deg, rgba(13,148,136,0.06), rgba(220,38,38,0.03))",
+                border: "1px solid rgba(13,148,136,0.15)",
               }}
             >
               <div>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 20, color: "#1C1917", marginBottom: 6 }}>
                   Learning never stops 🧠
                 </div>
-                <div style={{ color: "#A8A29E", fontSize: 14, lineHeight: 1.7, maxWidth: 420 }}>
-                  Currently deepening expertise in Frontend System Design-
-                  the architecture layer that separates good engineers
-                  from great ones.
+                <div style={{ color: "#78716C", fontSize: 14, lineHeight: 1.7, maxWidth: 420 }}>
+                  Currently deepening expertise in Frontend System Design - the architecture layer that separates good engineers from great ones.
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
@@ -424,13 +412,13 @@ export default function Learnings() {
                     padding: "12px 24px",
                     borderRadius: 10,
                     color: "#FAFAF9",
-                    background: "linear-gradient(135deg, #14B8A6, #6366F1)",
-                    boxShadow: "0 4px 24px rgba(20,184,166,0.25)",
+                    background: "linear-gradient(135deg, #0D9488, #059669)",
+                    boxShadow: "0 4px 24px rgba(13,148,136,0.25)",
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                     display: "inline-block",
                   }}
-                  whileHover={{ scale: 1.05, boxShadow: "0 8px 40px rgba(20,184,166,0.4)" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 40px rgba(13,148,136,0.4)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   NamasteDev ↗
@@ -448,13 +436,13 @@ export default function Learnings() {
                     padding: "12px 24px",
                     borderRadius: 10,
                     color: "#1C1917",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(0,0,0,0.1)",
+                    background: "rgba(0,0,0,0.04)",
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                     display: "inline-block",
                   }}
-                  whileHover={{ scale: 1.05, borderColor: "rgba(20,184,166,0.4)", background: "rgba(20,184,166,0.06)" }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(13,148,136,0.4)", background: "rgba(13,148,136,0.06)" }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Follow on Medium →
@@ -462,7 +450,6 @@ export default function Learnings() {
               </div>
             </div>
           </RevealOnScroll>
-
         </div>
       </section>
     </>

@@ -2,8 +2,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { SKILL_CATEGORIES } from "../data/skills";
 
-
-
 // Proficiency bar label
 function proficiencyLabel(level) {
   if (level >= 90) return "Expert";
@@ -78,7 +76,7 @@ function SkillRow({ skill, color, index, isVisible }) {
         style={{
           height: 4,
           borderRadius: 999,
-          background: "rgba(255,255,255,0.04)",
+          background: "rgba(0,0,0,0.06)",
           overflow: "hidden",
         }}
       >
@@ -109,8 +107,8 @@ function CategoryCard({ category, delay }) {
       ref={ref}
       className="relative rounded-2xl p-7 flex flex-col gap-6"
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
-        border: `1px solid ${hovered ? category.color + "30" : "rgba(255,255,255,0.06)"}`,
+        background: "linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01))",
+        border: `1px solid ${hovered ? category.color + "30" : "rgba(0,0,0,0.06)"}`,
         transition: "border-color 0.3s",
       }}
       initial={{ opacity: 0, y: 40 }}
@@ -168,13 +166,7 @@ function CategoryCard({ category, delay }) {
       {/* Skills list */}
       <div className="flex flex-col gap-5">
         {category.skills.map((skill, i) => (
-          <SkillRow
-            key={skill.name}
-            skill={skill}
-            color={category.color}
-            index={i}
-            isVisible={inView}
-          />
+          <SkillRow key={skill.name} skill={skill} color={category.color} index={i} isVisible={inView} />
         ))}
       </div>
     </motion.div>
@@ -183,13 +175,14 @@ function CategoryCard({ category, delay }) {
 
 // Floating marquee of skill tags at the bottom
 function SkillMarquee() {
-  const allSkills = SKILL_CATEGORIES.flatMap((c) =>
-    c.skills.map((s) => ({ name: s.name, color: c.color }))
-  );
+  const allSkills = SKILL_CATEGORIES.flatMap((c) => c.skills.map((s) => ({ name: s.name, color: c.color })));
   const doubled = [...allSkills, ...allSkills];
 
   return (
-    <div className="relative overflow-hidden py-4" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+    <div
+      className="relative overflow-hidden py-4"
+      style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+    >
       <motion.div
         className="flex gap-3 w-max"
         animate={{ x: ["0%", "-50%"] }}
@@ -248,12 +241,11 @@ export default function Skills() {
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 65%)",
+            background: "radial-gradient(circle, rgba(13,148,136,0.03) 0%, transparent 65%)",
           }}
         />
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
-
           {/* ── Heading ── */}
           <RevealOnScroll>
             <div className="mb-6">
@@ -267,12 +259,11 @@ export default function Skills() {
                   lineHeight: 1.1,
                 }}
               >
-                What I bring{" "}
-                <span className="shimmer-skills">to the table</span>
+                What I bring <span className="shimmer-skills">to the table</span>
               </h2>
               <div
                 className="mt-5 h-px w-32"
-                style={{ background: "linear-gradient(to right, rgba(20,184,166,0.5), transparent)" }}
+                style={{ background: "linear-gradient(to right, rgba(13,148,136,0.5), transparent)" }}
               />
             </div>
           </RevealOnScroll>
@@ -288,20 +279,20 @@ export default function Skills() {
                 marginBottom: 56,
               }}
             >
-              5+ years of hands-on experience across the full frontend stack -
-              from pixel-perfect UI to scalable architecture and reliable testing.
+              5+ years of hands-on experience across the full frontend stack - from pixel-perfect UI to scalable
+              architecture and reliable testing.
             </p>
           </RevealOnScroll>
 
           {/* ── Skill Cards Grid ── */}
-          {/* Row 1 -3 columns */}
+          {/* Row 1 - 3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
             {SKILL_CATEGORIES.slice(0, 3).map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} delay={i * 0.1} />
             ))}
           </div>
 
-          {/* Row 2 -3 columns */}
+          {/* Row 2 - 3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
             {SKILL_CATEGORIES.slice(3).map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} delay={i * 0.1} />
@@ -311,14 +302,16 @@ export default function Skills() {
           {/* ── Divider ── */}
           <div
             className="w-full h-px mb-10"
-            style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent)" }}
+            style={{
+              background: "linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent)",
+            }}
           />
 
           {/* ── Marquee ── */}
           <RevealOnScroll delay={0.1}>
             <p
               style={{
-                color: "#A8A29E",
+                color: "#78716C",
                 fontSize: 15,
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
@@ -336,20 +329,20 @@ export default function Skills() {
             <div
               className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden"
               style={{
-                border: "1px solid rgba(255,255,255,0.06)",
-                background: "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+                border: "1px solid rgba(0,0,0,0.08)",
+                background: "linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01))",
               }}
             >
               {[
-                { value: "5+", label: "Years Experience", color: "#14B8A6" },
-                { value: "20+", label: "Projects Shipped", color: "#EA580C" },
-                { value: "2", label: "Frameworks Expert", color: "#A78BFA" },
-                { value: "8+", label: "Tools Mastered", color: "#34D399" },
+                { value: "5+", label: "Years Experience", color: "#0D9488" },
+                { value: "20+", label: "Projects Shipped", color: "#DC2626" },
+                { value: "2", label: "Frameworks Expert", color: "#7C3AED" },
+                { value: "8+", label: "Tools Mastered", color: "#059669" },
               ].map((stat, i) => (
                 <div
                   key={stat.label}
                   className="flex flex-col items-center justify-center py-8 px-4 text-center"
-                  style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}
+                  style={{ borderRight: i < 3 ? "1px solid rgba(0,0,0,0.06)" : "none" }}
                 >
                   <div
                     style={{
@@ -377,7 +370,6 @@ export default function Skills() {
               ))}
             </div>
           </RevealOnScroll>
-
         </div>
       </section>
     </>
