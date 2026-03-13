@@ -78,11 +78,11 @@ function GridBackground() {
 function Particles() {
   const particles = Array.from({ length: 18 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 8 + 6,
-    delay: Math.random() * 5,
+    x: (i * 17) % 100,
+    y: (i * 29) % 100,
+    size: 1 + (i % 3),
+    duration: 6 + (i % 5),
+    delay: (i % 6) * 0.6,
   }));
 
   return (
@@ -124,22 +124,23 @@ function CustomCursor() {
 
   useEffect(() => {
     const move = (e) => {
-      cursorX.set(e.clientX  -8);
-      cursorY.set(e.clientY  -8);
+      cursorX.set(e.clientX - 8);
+      cursorY.set(e.clientY - 8);
     };
     const enterLink = () => setIsHovering(true);
     const leaveLink = () => setIsHovering(false);
+    const interactiveElements = document.querySelectorAll("a, button");
 
     window.addEventListener("mousemove", move);
-    document
-      .querySelectorAll("a, button")
-      .forEach((el) => el.addEventListener("mouseenter", enterLink));
-    document
-      .querySelectorAll("a, button")
-      .forEach((el) => el.addEventListener("mouseleave", leaveLink));
+    interactiveElements.forEach((el) => el.addEventListener("mouseenter", enterLink));
+    interactiveElements.forEach((el) => el.addEventListener("mouseleave", leaveLink));
 
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      interactiveElements.forEach((el) => el.removeEventListener("mouseenter", enterLink));
+      interactiveElements.forEach((el) => el.removeEventListener("mouseleave", leaveLink));
+    };
+  }, [cursorX, cursorY]);
 
   return (
     <>
@@ -168,35 +169,29 @@ function TypewriterRole() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [deleting, setDeleting] = useState(false);
-  const [pause, setPause] = useState(false);
-
   useEffect(() => {
-    if (pause) return;
     const current = ROLES[roleIndex];
+    const delay = !deleting && displayed === current ? 2000 : deleting ? 40 : 80;
 
-    if (!deleting && displayed === current) {
-      setTimeout(() => setPause(false) || setDeleting(true), 2000);
-      setPause(true);
-      return;
-    }
+    const timeout = setTimeout(() => {
+      if (!deleting && displayed === current) {
+        setDeleting(true);
+        return;
+      }
 
-    if (deleting && displayed === "") {
-      setDeleting(false);
-      setRoleIndex((i) => (i + 1) % ROLES.length);
-      return;
-    }
+      if (deleting && displayed === "") {
+        setDeleting(false);
+        setRoleIndex((i) => (i + 1) % ROLES.length);
+        return;
+      }
 
-    const timeout = setTimeout(
-      () => {
-        setDisplayed((prev) =>
-          deleting ? prev.slice(0, -1) : current.slice(0, prev.length + 1)
-        );
-      },
-      deleting ? 40 : 80
-    );
+      setDisplayed((prev) =>
+        deleting ? prev.slice(0, -1) : current.slice(0, prev.length + 1)
+      );
+    }, delay);
 
     return () => clearTimeout(timeout);
-  }, [displayed, deleting, roleIndex, pause]);
+  }, [displayed, deleting, roleIndex]);
 
   return (
     <span className="text-[#14B8A6]">

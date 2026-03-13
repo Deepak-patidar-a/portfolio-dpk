@@ -1,16 +1,61 @@
-# React + Vite
+# Deepak Patidar — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-focused full stack engineer portfolio showcasing **5+ years** of experience building scalable enterprise applications with React, TypeScript, and modern frontend architecture.
 
-Currently, two official plugins are available:
+## Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built and scaled **20+ enterprise screens** for pricing workflows.
+- Integrated **60+ REST APIs** with resilient validation/error handling patterns.
+- Contributed to **99.9% uptime** through production RCA and reliability improvements.
+- Delivered projects across SaaS, fintech, and AI-enabled product experiences.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React, Tailwind CSS, Framer Motion
+- **Full Stack Exposure:** Node.js, REST APIs, authentication, real-time systems
+- **Tooling:** Vite, ESLint
 
-## Expanding the ESLint configuration
+## Sections in Portfolio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Hero and value proposition
+- About
+- Experience and quantified impact
+- Projects (live demos + code)
+- Skills
+- Learnings and writing
+- Contact form (EmailJS)
+
+## Local Setup
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Lint:
+
+```bash
+npm run lint
+```
+
+## Environment Variables
+
+Create a `.env` file for the contact form:
+
+```bash
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+## Contact
+
+- LinkedIn: <https://www.linkedin.com/in/deepak-patidar-react/>
+- GitHub: <https://github.com/Deepak-patidar-a>
+- Email: <mailto:deepakpatidar796@gmail.com>
