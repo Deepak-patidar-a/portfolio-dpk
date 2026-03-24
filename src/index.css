@@ -1,6 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap");
 @import "tailwindcss";
 
 @theme {
   --color-indigo-soft: #14B8A6;
   --color-indigo-deep: #6366F1;
 }
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.font-display { font-family: "Syne", sans-serif; }
+.font-body { font-family: "DM Sans", sans-serif; }

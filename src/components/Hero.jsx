@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { ROLES } from "../data/common";
 
 // Animated grid background
@@ -76,7 +76,7 @@ function GridBackground() {
 
 // Floating particles
 function Particles() {
-  const particles = Array.from({ length: 18 }, (_, i) => ({
+  const particles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     x: (i * 17) % 100,
     y: (i * 29) % 100,
@@ -111,56 +111,6 @@ function Particles() {
         />
       ))}
     </div>
-  );
-}
-
-// Custom cursor
-function CustomCursor() {
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const springX = useSpring(cursorX, { stiffness: 200, damping: 20 });
-  const springY = useSpring(cursorY, { stiffness: 200, damping: 20 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const move = (e) => {
-      cursorX.set(e.clientX - 8);
-      cursorY.set(e.clientY - 8);
-    };
-    const enterLink = () => setIsHovering(true);
-    const leaveLink = () => setIsHovering(false);
-    const interactiveElements = document.querySelectorAll("a, button");
-
-    window.addEventListener("mousemove", move);
-    interactiveElements.forEach((el) => el.addEventListener("mouseenter", enterLink));
-    interactiveElements.forEach((el) => el.addEventListener("mouseleave", leaveLink));
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      interactiveElements.forEach((el) => el.removeEventListener("mouseenter", enterLink));
-      interactiveElements.forEach((el) => el.removeEventListener("mouseleave", leaveLink));
-    };
-  }, [cursorX, cursorY]);
-
-  return (
-    <>
-      {/* Main dot */}
-      <motion.div
-      className="custom-cursor fixed top-0 left-0 z-[9999] rounded-full pointer-events-none"
-      style={{
-        x: springX,
-        y: springY,
-        width: isHovering ? 32 : 12,
-        height: isHovering ? 32 : 12,
-        background: "#0D9488",  // Solid teal-700
-        border: "2px solid #FAFAF9",  // White border for contrast
-        boxShadow: "0 2px 12px rgba(13,148,136,0.4)",
-        transition: "width 0.2s, height 0.2s",
-        marginLeft: isHovering ? -10 : 0,
-        marginTop: isHovering ? -10 : 0,
-      }}
-    />
-    </>
   );
 }
 
@@ -260,44 +210,6 @@ function StatCounter({ value, label, delay }) {
 export default function Hero() {
   return (
     <>
-      {/* Google Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-        * { cursor: none !important; }
-        @media (hover: none) and (pointer: coarse) {
-          * { cursor: auto !important; }
-          .custom-cursor { display: none !important; }
-        }
-        .font-display { font-family: 'Syne', sans-serif; }
-        .font-body { font-family: 'DM Sans', sans-serif; }
-        .text-shimmer {
-          background: linear-gradient(90deg, #1C1917 0%, #14B8A6 40%, #1C1917 60%, #EA580C 100%);
-          background-size: 200% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: shimmer 4s linear infinite;
-        }
-        @keyframes shimmer {
-          to { background-position: 200% center; }
-        }
-        .btn-primary {
-          position: relative;
-          overflow: hidden;
-        }
-        .btn-primary::before {
-          content: '';
-          position: absolute;
-          top: 0; left: -100%;
-          width: 100%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-          transition: left 0.5s;
-        }
-        .btn-primary:hover::before { left: 100%; }
-      `}</style>
-
-      <CustomCursor />
-
       <section
         className="font-body relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20"
         style={{ background: "#FAFAF9" }}
@@ -346,8 +258,8 @@ export default function Hero() {
                 👋 Hi, I'm
                 </span>
                 <span
-                className="text-shimmer block"
-                style={{ fontSize: "clamp(2.8rem, 12vw, 7rem)" }}
+                className="block"
+                style={{ fontSize: "clamp(2.8rem, 12vw, 7rem)", background: "linear-gradient(90deg, #1C1917 0%, #14B8A6 40%, #1C1917 60%, #EA580C 100%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 4s linear infinite" }}
                 >
                 Deepak Patidar
                 </span>
@@ -374,7 +286,7 @@ export default function Hero() {
             Crafting{" "}
             <span className="text-black font-medium">high-performance, scalable</span> and{" "}
             <span className="text-black font-medium">thoughtful user experiences</span> front-end 
-            systems that power enterprise workflows  -currently building enterprise supply chain interfaces at{" "}
+            systems that power enterprise workflows. Currently building enterprise supply chain interfaces at{" "}
             <span className="text-[#14B8A6] font-medium">Blue Yonder</span>.
           </motion.p>
 
@@ -387,7 +299,7 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
-              className="btn-primary font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#FAFAF9] w-full sm:w-auto"
+              className="font-display font-semibold tracking-wider uppercase text-sm rounded-lg text-[#FAFAF9] w-full sm:w-auto"
               style={{
                 background: "linear-gradient(135deg, #14B8A6, #6366F1)",
                 boxShadow: "0 0 30px rgba(20,184,166,0.3)",
