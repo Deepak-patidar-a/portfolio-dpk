@@ -65,10 +65,6 @@ export default function Navbar() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
-      `}</style>
-
       {/* ── Main Navbar ── */}
       <motion.header
         className="fixed top-0 left-0 right-0 z-50"
